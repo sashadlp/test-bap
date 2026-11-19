@@ -12,12 +12,12 @@ $matieres_autorisees = array(
 	'allemand',
 	'arts-plastiques',
 	'anglais',
-	'espagnol',
+	'Espagnol',
 	'francais',
 	'physique-chimie',
 	'mathematiques',
 	'svt',
-	'histoire-geo-emc',
+	'Histoire-Géographie-EMC',
 	'technologie',
 	'lce-anglais',
 	'eps',
@@ -26,9 +26,9 @@ $matieres_autorisees = array(
 $categories = get_categories(
 	array(
 		'slug'       => $matieres_autorisees,
-		'hide_empty' => true,
+		'hide_empty' => false,
 		'orderby'    => 'name',
-		'order'      => 'ASC',
+		'order'      => '',
 	)
 );
 ?>
@@ -55,34 +55,34 @@ $categories = get_categories(
 	<!-- Boucle automatique par matière -->
 	<?php if ( ! empty( $categories ) ) : ?>
 		<?php foreach ( $categories as $cat ) : ?>
-			<section class="section-matiere actualites" data-matiere="<?php echo esc_attr( $cat->slug ); ?>">
-				<h2 class="actualites__titre"><?php echo esc_html( $cat->name ); ?></h2>
+	<?php
+	$q = new WP_Query(
+		array(
+			'post_type'           => 'post',
+			'category_name'       => $cat->slug,
+			'posts_per_page'      => 6,
+			'ignore_sticky_posts' => true,
+			'no_found_rows'       => true,
+			'lang'                => '', // Affiche même si l'article est tagué en langue ES
+		)
+	);
+	?>
 
+	<?php if ( $q->have_posts() ) : ?>
+		<section class="section-matiere actualites" data-matiere="<?php echo esc_attr( $cat->slug ); ?>">
+			<h2 class="actualites__titre"><?php echo esc_html( $cat->name ); ?></h2>
+			<ul class="wp-block-post-template posts-grid">
 				<?php
-				$q = new WP_Query(
-					array(
-						'post_type'           => 'post',
-						'cat'                 => $cat->term_id,
-						'posts_per_page'      => 6,
-						'ignore_sticky_posts' => true,
-						'no_found_rows'       => true,
-					)
-				);
+				while ( $q->have_posts() ) :
+					$q->the_post();
+					get_template_part( 'template-parts/card' );
+				endwhile;
+				wp_reset_postdata();
 				?>
-
-				<?php if ( $q->have_posts() ) : ?>
-					<ul class="wp-block-post-template posts-grid">
-						<?php
-						while ( $q->have_posts() ) :
-							$q->the_post();
-							get_template_part( 'template-parts/card' );
-						endwhile;
-						wp_reset_postdata();
-						?>
-					</ul>
-				<?php endif; ?>
-			</section>
-		<?php endforeach; ?>
+			</ul>
+		</section>
+	<?php endif; ?>
+<?php endforeach; ?>
 	<?php else : ?>
 		<p><?php esc_html_e( 'Aucun travail publié pour le moment.', 'les-renardiere' ); ?></p>
 	<?php endif; ?>
