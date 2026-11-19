@@ -1,6 +1,7 @@
 <?php
 /**
- * Carte d'un article ou d'un projet dans une grille (image, date, catégorie, titre, extrait).
+ * Carte d'un article ou d'un projet dans une grille :
+ * image, puis date + catégories (article) ou technologies + vues (projet), titre, extrait.
  * Les styles viennent de .wp-block-post-template li dans assets/sass/_home.scss.
  *
  * @package Les_Renardiere
@@ -19,6 +20,9 @@
 		<?php if ( has_category() ) : ?>
 			<div class="taxonomy-category"><?php the_category( ', ' ); ?></div>
 		<?php endif; ?>
+	<?php elseif ( 'projet' === get_post_type() ) : ?>
+		<?php the_terms( get_the_ID(), 'technologie', '<div class="taxonomy-category">', ', ', '</div>' ); ?>
+		<span class="projet-vues"><?php echo esc_html( les_renardiere_vues_texte() ); ?></span>
 	<?php endif; ?>
 
 	<h2 class="wp-block-post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>

@@ -185,3 +185,53 @@
 body {
   margin: 0 !important;
 }
+
+// Page « Travaux des élèves » (page-templates/template-travaux-eleves.php)
+.page-travaux {
+  .filtre-matieres {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    margin-bottom: 2rem;
+
+    label {
+      font-weight: 600;
+    }
+
+    select {
+      min-height: 44px;
+      padding: 0 0.75rem;
+      border: 1px solid var(--border-card);
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--text-dark);
+      font: inherit;
+    }
+  }
+
+  .section-matiere {
+    padding: 0;
+    margin-bottom: 2.5rem;
+  }
+
+  // Encadré de diagnostic, visible seulement par les admins.
+  .travaux-diagnostic {
+    margin-bottom: 2rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid #e0a27f;
+    border-radius: 8px;
+    background: #fbe6d8;
+
+    p,
+    li {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.25rem;
+    }
+  }
+}

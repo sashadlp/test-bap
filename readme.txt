@@ -1,37 +1,46 @@
-=== Les_Renardiere ===
+=== Collège Les Renardières ===
 
-Contributors: automattic
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Contributors: Sasha Passas Youssi et l'équipe BAP
+Tags: custom-logo, featured-images, translation-ready
 
-Requires at least: 4.5
-Tested up to: 5.4
-Requires PHP: 5.6
-Stable tag: 1.0.0
+Requires at least: 6.5
+Tested up to: 7.1
+Requires PHP: 7.4
+Stable tag: 2.0.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called Les_Renardiere, or underscores.
+Thème sur mesure pour le Collège Les Renardières, basé sur Underscores (_s).
 
 == Description ==
 
-Hi. I'm a starter theme called Les_Renardiere, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Thème classique Underscores « hybride » : les pages sont des modèles PHP, l'en-tête et le pied de page
+sont des parties de modèle FSE (parts/header.html, parts/footer.html), modifiables dans
+Apparence → Compositions → Parties de modèle (un thème classique n'a pas de menu « Éditeur »).
+
+Le thème déclare aussi le type de contenu « Projet », la taxonomie « Technologies » et un compteur de vues.
+Voir README.md pour l'organisation des fichiers et des styles.
 
 == Installation ==
 
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
-
-== Frequently Asked Questions ==
-
-= Does this theme support any plugins? =
-
-_s includes support for WooCommerce and for Infinite Scroll in Jetpack.
+1. Dans l'administration, aller dans Apparence → Thèmes → Ajouter.
+2. Cliquer sur Téléverser un thème, choisir le .zip du thème, puis Installer.
+3. Activer le thème.
+4. Créer les pages vers lesquelles pointent l'accueil et le pied de page (slugs) :
+   infos-pratiques, contact, mentions-legales, accessibilite, plan-du-site.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
-* Initial release
+= 2.0.1 =
+* Compteur de vues : n'enregistre plus les visites des rédacteurs, des robots ni des aperçus.
+* Boutons de l'accueil : lien vers la vraie page, masqués si la page n'existe pas.
+* Pied de page : reprend le menu de l'en-tête (sous-menus en colonnes), liens légaux construits avec l'adresse du site, année du © automatique.
+* Cartes de projets : technologies et nombre de vues.
+* Page de recherche alignée sur les autres pages.
+* Nettoyage : menu classique, zone de widgets, Customizer, défilement infini Jetpack et polices inutilisés retirés.
+
+= 2.0.0 =
+* Conversion du thème à blocs en thème Underscores.
 
 == Credits ==
 
