@@ -1,0 +1,20 @@
+// Variables SASS
+$bg-cream: #F7F4EB;
+$navy-primary: #04234E;
+$navy-hover: #0A3775;
+$text-dark: #1A1A1A;
+$text-muted: #5C6672;
+$border-card: #D6D1C4;
+$white: #FFFFFF;
+$font-main: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+// Exposition en variables CSS natives
+:root {
+  --bg-cream: #{$bg-cream};
+  --navy-primary: #{$navy-primary};
+  --navy-hover: #{$navy-hover};
+  --text-dark: #{$text-dark};
+  --text-muted: #{$text-muted};
+  --border-card: #{$border-card};
+  --white: #{$white};
+}

@@ -1,0 +1,49 @@
+@use 'variables' as *;
+
+footer.wp-block-group,
+.site-footer {
+  background-color: var(--navy-primary) !important;
+  color: var(--white) !important;
+  padding: 3rem 1.5rem 2rem !important;
+  margin-top: 4rem;
+  width: 100%;
+  max-width: none !important;
+
+  .footer-columns {
+    max-width: 650px;
+    margin: 0 auto 2rem !important;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .footer-col {
+    h3 {
+      color: var(--white) !important;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li,
+    a {
+      color: var(--white) !important;
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+  }
+
+  .footer-bottom {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 1.5rem;
+    margin: 0 auto;
+    max-width: 650px;
+  }
+}

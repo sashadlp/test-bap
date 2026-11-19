@@ -1,0 +1,187 @@
+@use 'variables' as *;
+
+// ---------------------------------------------------------------
+// Balisage PHP d'Underscores (pages, articles, accueil)
+// ---------------------------------------------------------------
+
+// En-tête et pied de page : parties de modèle FSE (parts/*.html),
+// stylées par _header.scss et _footer.scss comme dans l'ancien thème à blocs.
+
+.site-header .wp-block-site-logo img {
+  width: 48px;
+  height: auto;
+}
+
+// Conteneurs (largeurs reprises des anciens templates)
+.page-container {
+  max-width: 1140px;
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.single-article-container {
+  max-width: 820px;
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem;
+
+  .single-article-cover img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .single-article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin: 1.25rem 0 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .post-navigation {
+    margin-top: 3rem;
+  }
+}
+
+.single-article-cover {
+  margin: 0;
+}
+
+.page-title,
+.entry-title {
+  margin-top: 0;
+}
+
+// Accueil
+.hero-college {
+  display: flex;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  background-color: var(--navy-primary);
+  background-size: cover;
+  background-position: center;
+
+  &.has-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(4, 35, 78, 0.85) 0%, rgba(4, 35, 78, 0.35) 70%);
+  }
+
+  .hero-college__inner {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-college__title {
+    max-width: 600px;
+    margin: 0 0 1rem;
+  }
+
+  .hero-college__intro {
+    max-width: 560px;
+    color: var(--white);
+    margin: 0 0 1.5rem;
+  }
+
+  .hero-college__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    // Sur le fond bleu : bouton principal blanc, bouton secondaire en contour blanc.
+    .btn-rentree {
+      background-color: var(--white) !important;
+      border-color: var(--white) !important;
+      color: var(--navy-primary) !important;
+    }
+
+    .btn-contact-hero {
+      background-color: transparent !important;
+      border-color: var(--white) !important;
+      color: var(--white) !important;
+    }
+
+    .btn-rentree:hover,
+    .btn-contact-hero:hover {
+      background-color: var(--bg-cream) !important;
+      color: var(--navy-primary) !important;
+      text-decoration: none;
+    }
+  }
+}
+
+.actualites {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  .actualites__titre {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.posts-grid {
+  margin: 0 0 2rem;
+
+  .wp-block-post-excerpt {
+    padding: 0 1rem;
+    font-size: 0.9rem;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .taxonomy-category a {
+    color: var(--text-muted);
+  }
+}
+
+// Pagination
+.pagination .nav-links,
+.posts-navigation .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 2rem 0;
+
+  .page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 0.75rem;
+    border: 1px solid var(--border-card);
+    border-radius: 6px;
+    text-decoration: none;
+
+    &.current {
+      background: var(--navy-primary);
+      border-color: var(--navy-primary);
+      color: var(--white);
+    }
+  }
+}
+
+// Archives (titre + extrait)
+.archive-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-card);
+
+  .entry-title {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+  }
+}
+
+// La feuille globale de WordPress (theme.json) ajoute une marge sous <body> : on la retire.
+body {
+  margin: 0 !important;
+}
