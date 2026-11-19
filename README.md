@@ -18,6 +18,7 @@ Conversion du thème à blocs `les-renardiere` en thème classique basé sur [Un
 | `templates/contact.html`            | `page-templates/template-contact.php` (modèle « Contact ») |
 | `templates/index.html`              | `index.php` (boucle Underscores standard) |
 | CPT Projet, Technologies, vues      | `inc/projets.php`                         |
+| (nouveau) Travaux des élèves        | `page-templates/template-travaux-eleves.php` (modèle « Travaux des élèves ») : une section par catégorie-matière, filtre par matière. La liste des slugs est en haut du fichier ; un encadré visible des admins dit pourquoi une matière n'apparaît pas. |
 
 ## Styles
 
