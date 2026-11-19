@@ -49,7 +49,7 @@ function les_renardiere_setup() {
 	// Pas d'emplacement de menu classique : le menu est le bloc Navigation de parts/header.html.
 
 	// En-tête et pied de page en parties de modèle FSE (parts/header.html, parts/footer.html),
-	// modifiables dans Apparence → Éditeur → Compositions → Parties de modèle.
+	// modifiables dans Apparence → Compositions → Parties de modèle.
 	add_theme_support( 'block-template-parts' );
 
 	// Styles du thème (Sass compilé) aussi dans l'éditeur.
