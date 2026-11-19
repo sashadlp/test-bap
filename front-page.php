@@ -58,7 +58,7 @@ $les_renardiere_news = new WP_Query(
 			</section>
 
 			<section class="qui-nous-sommes">
-				<h2><?php esc_html_e( 'Qui nous sommes', 'les-renardiere' ); ?></h2>
+				<h2><?php esc_html_e( 'Qui sommes nous', 'les-renardiere' ); ?></h2>
 				<div class="entry-content">
 					<?php
 					if ( get_the_content() ) {

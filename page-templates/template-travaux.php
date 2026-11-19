@@ -12,7 +12,7 @@ $matieres_autorisees = array(
 	'allemand',
 	'arts-plastiques',
 	'anglais',
-	'Espagnol',
+	'espagnol-pedagogie',
 	'francais',
 	'physique-chimie',
 	'mathematiques',
