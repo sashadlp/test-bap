@@ -38,6 +38,87 @@ footer.wp-block-group,
     }
   }
 
+  // Menu du pied de page (patterns/footer.php) : même menu que l'en-tête,
+  // chaque entrée de premier niveau devient une colonne, ses sous-menus sont toujours visibles.
+  .footer-nav {
+    max-width: 1200px;
+    margin: 0 auto 2.5rem !important;
+
+    .wp-block-navigation__container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem 3rem;
+      width: 100%;
+    }
+
+    // Entrées de premier niveau = titres de colonnes.
+    .wp-block-navigation__container > .wp-block-navigation-item {
+      flex-direction: column;
+      align-items: flex-start;
+
+      > .wp-block-navigation-item__content {
+        color: var(--white) !important;
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    // Sous-menus : déployés en liste, plus en menu déroulant.
+    .has-child .wp-block-navigation__submenu-container,
+    .has-child:hover .wp-block-navigation__submenu-container,
+    .has-child:focus-within .wp-block-navigation__submenu-container {
+      position: static !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      width: auto !important;
+      height: auto !important;
+      min-width: 0 !important;
+      overflow: visible !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      color: var(--white) !important;
+      transition: none;
+    }
+
+    .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+      padding: 0 !important;
+      color: var(--white) !important;
+      font-size: 0.85rem;
+      line-height: 1.9;
+      opacity: 0.85;
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+        color: var(--white) !important;
+      }
+    }
+
+    // Pas de flèche de déroulement dans le pied de page.
+    .wp-block-navigation__submenu-icon {
+      display: none !important;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .footer-legal {
+    max-width: 650px;
+    margin: 0 auto 1rem !important;
+    font-size: 0.8rem;
+
+    a {
+      color: var(--white) !important;
+    }
+  }
+
   .footer-bottom {
     color: rgba(255, 255, 255, 0.8) !important;
     font-size: 0.8rem;

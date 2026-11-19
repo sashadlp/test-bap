@@ -31,13 +31,17 @@ Conversion du thème à blocs `les-renardiere` en thème classique basé sur [Un
 Le thème est un thème classique Underscores **hybride** : les pages sont en PHP, mais l'en-tête et le pied de page
 sont des **parties de modèle FSE** (`add_theme_support( 'block-template-parts' )`).
 
-- Les modifier : **Apparence → Design → Compositions → En-tête / Pied de page**.
+- Les modifier : **Apparence → Compositions → Parties de modèle → En-tête / Pied de page**
+  (adresse directe : `/wp-admin/site-editor.php?path=/patterns`). Un thème classique n'a pas de menu « Éditeur ».
 - Une fois modifiées dans l'éditeur, elles sont enregistrées dans la base de données (et ne lisent plus `parts/*.html`).
   Pour revenir au fichier : dans l'éditeur, menu ⋮ → « Réinitialiser ».
-- Le menu est le bloc Navigation : il se modifie directement dans l'en-tête (Apparence → Design → Navigation).
+- Le menu est le bloc Navigation : il se modifie en ouvrant la partie de modèle **En-tête**, puis en cliquant sur le menu.
+  Pas d'écran « Apparence → Menus » : un menu classique ne serait de toute façon pas repris par le bloc Navigation.
 - Styles : `_header.scss` et `_footer.scss` (classes des blocs, comme dans l'ancien thème).
 - Le contenu du pied de page est dans `patterns/footer.php` (`parts/footer.html` ne fait que l'appeler) :
-  c'est du PHP, donc les liens utilisent `home_url()` et l'année du © est automatique.
+  c'est du PHP, donc les liens légaux utilisent `home_url()` et l'année du © est automatique.
+- Le menu du pied de page est un bloc Navigation **sans menu choisi** : il affiche le même menu que l'en-tête
+  et se met à jour avec lui. Les sous-menus y sont déployés en colonnes (`_footer.scss`).
 
 ## Pages à créer dans WordPress
 
@@ -46,7 +50,7 @@ Le thème pointe vers des pages par leur **slug** : elles doivent exister et êt
 | Slug | Utilisée par |
 |------|--------------|
 | `infos-pratiques`, `contact` | Boutons du bandeau d'accueil (un bouton est **masqué** tant que sa page n'existe pas) |
-| `mentions-legales`, `accessibilite`, `plan-du-site`, `secretariat`, `vie-scolaire`, `horaires` | Pied de page |
+| `mentions-legales`, `accessibilite`, `plan-du-site` | Liens légaux en bas du pied de page |
 
 ## Compteur de vues des projets
 

@@ -1,7 +1,8 @@
 <?php
 /**
  * En-tête : <head> + partie de modèle FSE « header » (parts/header.html).
- * Le contenu de l'en-tête se modifie dans Apparence → Éditeur → Compositions → Parties de modèle → En-tête.
+ * Le contenu de l'en-tête se modifie dans Apparence → Compositions → Parties de modèle → En-tête
+ * (adresse directe : /wp-admin/site-editor.php?path=/patterns).
  *
  * @package Les_Renardiere
  */
