@@ -183,7 +183,8 @@ header.wp-block-group .wp-block-navigation .wp-block-navigation-item__content {
   border-bottom: 1px dashed var(--border-card);
 }
 .wp-block-post-template li .wp-block-post-date,
-.wp-block-post-template li .taxonomy-category {
+.wp-block-post-template li .taxonomy-category,
+.wp-block-post-template li .projet-vues {
   font-size: 0.75rem;
   color: var(--text-muted);
   padding: 0.75rem 1rem 0.25rem;

@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main page-container">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -37,7 +37,12 @@ get_header();
 
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_pagination(
+				array(
+					'prev_text' => esc_html__( 'Précédent', 'les-renardiere' ),
+					'next_text' => esc_html__( 'Suivant', 'les-renardiere' ),
+				)
+			);
 
 		else :
 
@@ -46,8 +51,7 @@ get_header();
 		endif;
 		?>
 
-	</main><!-- #main -->
+	</main><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
