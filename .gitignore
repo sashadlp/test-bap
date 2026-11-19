@@ -1,0 +1,9 @@
+# Dépendances (installées avec composer / npm, jamais commitées)
+/vendor/
+/node_modules/
+
+# Fichiers système et éditeur
+.DS_Store
+Thumbs.db
+desktop.ini
+.sass-cache/
