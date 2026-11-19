@@ -391,6 +391,22 @@ footer.wp-block-group,
   width: 100%;
   max-width: none !important;
 }
+footer.wp-block-group p,
+footer.wp-block-group li,
+footer.wp-block-group span,
+footer.wp-block-group a,
+footer.wp-block-group h2,
+footer.wp-block-group h3,
+footer.wp-block-group h4,
+.site-footer p,
+.site-footer li,
+.site-footer span,
+.site-footer a,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4 {
+  color: inherit;
+}
 footer.wp-block-group .footer-columns,
 .site-footer .footer-columns {
   max-width: 650px;
