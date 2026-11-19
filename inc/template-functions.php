@@ -17,14 +17,31 @@ function les_renardiere_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'no-sidebar';
-	}
+	// Le thème n'a pas de barre latérale.
+	$classes[] = 'no-sidebar';
 
 	return $classes;
 }
 add_filter( 'body_class', 'les_renardiere_body_classes' );
+
+/**
+ * Adresse d'une page publiée à partir de son slug (ex. « contact »).
+ *
+ * Utilise le vrai permalien de la page : le lien reste bon si WordPress est dans un sous-dossier
+ * ou si la structure des permaliens change.
+ *
+ * @param string $slug Slug (ou chemin, ex. « parent/enfant ») de la page.
+ * @return string Adresse de la page, ou chaîne vide si elle n'existe pas ou n'est pas publiée.
+ */
+function les_renardiere_page_url( $slug ) {
+	$page = get_page_by_path( $slug );
+
+	if ( ! $page || 'publish' !== get_post_status( $page ) ) {
+		return '';
+	}
+
+	return get_permalink( $page );
+}
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.

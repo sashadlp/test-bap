@@ -39,10 +39,21 @@ $les_renardiere_news = new WP_Query(
 					<?php if ( has_excerpt() ) : ?>
 						<p class="hero-college__intro"><?php echo esc_html( get_the_excerpt() ); ?></p>
 					<?php endif; ?>
-					<div class="hero-college__buttons">
-						<a class="btn-rentree" href="<?php echo esc_url( home_url( '/infos-pratiques/' ) ); ?>"><?php esc_html_e( 'Infos de rentrée', 'les-renardiere' ); ?></a>
-						<a class="btn-contact-hero" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contacter le collège', 'les-renardiere' ); ?></a>
-					</div>
+					<?php
+					// Chaque bouton n'apparaît que si sa page (slug « infos-pratiques », « contact ») est publiée.
+					$les_renardiere_url_infos   = les_renardiere_page_url( 'infos-pratiques' );
+					$les_renardiere_url_contact = les_renardiere_page_url( 'contact' );
+					?>
+					<?php if ( $les_renardiere_url_infos || $les_renardiere_url_contact ) : ?>
+						<div class="hero-college__buttons">
+							<?php if ( $les_renardiere_url_infos ) : ?>
+								<a class="btn-rentree" href="<?php echo esc_url( $les_renardiere_url_infos ); ?>"><?php esc_html_e( 'Infos de rentrée', 'les-renardiere' ); ?></a>
+							<?php endif; ?>
+							<?php if ( $les_renardiere_url_contact ) : ?>
+								<a class="btn-contact-hero" href="<?php echo esc_url( $les_renardiere_url_contact ); ?>"><?php esc_html_e( 'Contacter le collège', 'les-renardiere' ); ?></a>
+							<?php endif; ?>
+						</div>
+					<?php endif; ?>
 				</div>
 			</section>
 
