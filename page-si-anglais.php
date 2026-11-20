@@ -5,7 +5,7 @@
  * S'applique automatiquement à cette page (hiérarchie des modèles : page-{slug}.php).
  * Mise en page : template-parts/section-internationale.php (image, titre, texte).
  * Image : l'image mise en avant de la page si elle existe, sinon le bandeau
- * assets/img/si-americaine-banniere.svg (étoiles et « English »).
+ * assets/img/si-americaine-banniere.svg (semis d’étoiles).
  * Texte : le contenu de la page dans l'éditeur WordPress s'il y en a un, sinon le texte ci-dessous
  * (rédigé sur le modèle de la section arabe, d’après les projets publiés sur le site).
  *

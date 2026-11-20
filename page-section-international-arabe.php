@@ -5,7 +5,7 @@
  * S'applique automatiquement à cette page (hiérarchie des modèles : page-{slug}.php).
  * Mise en page : template-parts/section-internationale.php (image, titre, texte).
  * Image : l'image mise en avant de la page si elle existe, sinon le bandeau
- * assets/img/si-arabe-banniere.svg (motif arabesque et « العربية »).
+ * assets/img/si-arabe-banniere.svg (motif arabesque).
  * Texte : le contenu de la page dans l'éditeur WordPress s'il y en a un, sinon le texte ci-dessous.
  *
  * @package Les_Renardiere
