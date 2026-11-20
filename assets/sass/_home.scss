@@ -52,7 +52,8 @@
 // Grille d'actualités (3 cartes)
 .wp-block-post-template {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  // auto-fill : une carte seule garde la largeur d'une colonne au lieu de prendre toute la ligne.
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
   list-style: none;
   padding: 0;

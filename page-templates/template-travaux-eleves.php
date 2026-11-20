@@ -63,15 +63,24 @@ foreach ( $les_renardiere_matieres as $les_renardiere_cle => $les_renardiere_slu
 			'cat'                 => implode( ',', wp_list_pluck( $les_renardiere_cats, 'term_id' ) ), // Inclut les sous-catégories.
 			'posts_per_page'      => 6,
 			'ignore_sticky_posts' => true,
-			'no_found_rows'       => true,
 		)
 	);
 
 	if ( $les_renardiere_q->have_posts() ) {
+		// Nom affiché : la première catégorie de la liste. Lien « Voir tous les articles » : celle qui a le plus d'articles.
+		$les_renardiere_nom = $les_renardiere_cats[0]->name;
+		usort(
+			$les_renardiere_cats,
+			function ( $a, $b ) {
+				return $b->count - $a->count;
+			}
+		);
+
 		$les_renardiere_sections[] = array(
 			'slug'  => $les_renardiere_cle,
-			'name'  => $les_renardiere_cats[0]->name,
+			'name'  => $les_renardiere_nom,
 			'query' => $les_renardiere_q,
+			'lien'  => $les_renardiere_q->found_posts > $les_renardiere_q->post_count ? get_category_link( $les_renardiere_cats[0] ) : '',
 		);
 	} else {
 		$les_renardiere_vides[] = $les_renardiere_cats[0]->name;
@@ -165,6 +174,17 @@ usort(
 						wp_reset_postdata();
 						?>
 					</ul>
+
+					<?php if ( $les_renardiere_section['lien'] ) : ?>
+						<p class="section-matiere__plus">
+							<a class="bouton" href="<?php echo esc_url( $les_renardiere_section['lien'] ); ?>">
+								<?php
+								/* translators: %s: nom de la matière. */
+								printf( esc_html__( 'Voir tous les articles : %s', 'les-renardiere' ), esc_html( $les_renardiere_section['name'] ) );
+								?>
+							</a>
+						</p>
+					<?php endif; ?>
 				</section>
 			<?php endforeach; ?>
 

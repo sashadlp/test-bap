@@ -235,3 +235,9 @@ body {
     }
   }
 }
+
+// Bouton « Voir tous les articles » sous chaque matière (travaux des élèves, matière enseignée).
+.page-travaux .section-matiere__plus {
+  margin: -0.5rem 0 0;
+  text-align: center;
+}

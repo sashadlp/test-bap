@@ -393,7 +393,7 @@ header.wp-block-group .wp-block-navigation .wp-block-navigation__responsive-cont
 
 .wp-block-post-template {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
   list-style: none;
   padding: 0;
@@ -1378,6 +1378,11 @@ body {
 .page-travaux .travaux-diagnostic ul {
   margin: 0.5rem 0 0;
   padding-left: 1.25rem;
+}
+
+.page-travaux .section-matiere__plus {
+  margin: -0.5rem 0 0;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
