@@ -1,6 +1,14 @@
 @use 'variables' as *;
 
-// Pages des sections internationales (template-parts/section-internationale.php) : arabe et américaine.
+// Pages des sections internationales (template-parts/section-internationale.php) : arabe et américaine,
+// et page d'entrée « Section internationale » (page-section-internationale.php).
+// Cartes d'actualités : _matieres.scss.
+
+$si-or: #D9B66C;
+$si-or-fonce: #8A6420;
+$si-rouge: #B22234;
+$si-cta: #FBE6D8;
+$si-cta-bord: #E0A27F;
 
 // Image pleine largeur juste sous le menu.
 .si-banniere {
@@ -21,7 +29,28 @@
   }
 }
 
+// Couleur d'accent de chaque section : doré (arabe), rouge (américaine).
+// --si-accent : filets et décors ; --si-accent-texte : texte (contraste suffisant sur fond clair).
 .page-si {
+  --si-accent: #{$si-or};
+  --si-accent-texte: #{$si-or-fonce};
+}
+
+.page-si--americaine {
+  --si-accent: #{$si-rouge};
+  --si-accent-texte: #{$si-rouge};
+}
+
+.page-si {
+  .si-surtitre {
+    margin: 0 0 0.4rem;
+    color: var(--si-accent-texte);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .si-titre {
     margin: 0 0 1.25rem;
     font-size: clamp(1.9rem, 4.5vw, 2.6rem);
@@ -31,9 +60,9 @@
   // Texte de présentation : grande taille, largeur de lecture confortable.
   .si-texte {
     max-width: 72ch;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     padding-left: 1.1rem;
-    border-left: 4px solid #D9B66C;
+    border-left: 4px solid var(--si-accent);
 
     p {
       margin: 0 0 1rem;
@@ -41,45 +70,120 @@
       line-height: 1.8;
     }
   }
-}
 
-// ---------------------------------------------------------------
-// Page d'entrée « Section internationale » (page-section-internationale.php)
-// Cartes d'actualités : _matieres.scss.
-// ---------------------------------------------------------------
-
-// Les deux bandeaux côte à côte (un seul sur téléphone).
-.si-banniere--double {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4px;
-  background: #D9B66C;
-
-  // Bandeaux en demi-largeur : on cadre sur la rosace et le mot, à droite du dessin.
-  .si-banniere__dessin {
-    object-position: 100% 50%;
-  }
-
-  @media (max-width: 700px) {
-    grid-template-columns: minmax(0, 1fr);
-
-    img + img {
-      display: none;
-    }
-  }
-}
-
-.page-si-hub {
-  .si-cartes {
+  // Repères : infos clés de la section.
+  .si-reperes {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
     margin: 0 0 3rem;
     padding: 0;
     list-style: none;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1.1rem 1.2rem;
+      border: 1px solid var(--border-card);
+      border-top: 4px solid var(--si-accent);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    strong {
+      color: var(--navy-primary);
+      font-size: 1.15rem;
+      line-height: 1.25;
+    }
+
+    span {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
   }
 
-  // Carte cliquable en entier (lien du titre étendu).
+  .si-intertitre {
+    margin: 0 0 1.25rem;
+    font-size: 1.5rem;
+  }
+
+  // Programme : un bloc par enseignement ou projet.
+  .si-programme {
+    margin-bottom: 3rem;
+  }
+
+  .si-blocs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .si-bloc {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.4rem 1.5rem 1.5rem;
+    border: 1px solid var(--border-card);
+    border-radius: 14px;
+    background: var(--white);
+
+    h3 {
+      margin: 0;
+      color: var(--navy-primary);
+      font-size: 1.15rem;
+      line-height: 1.3;
+    }
+
+    > p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+  }
+
+  .si-bloc__numero {
+    color: var(--si-accent-texte);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  // Listes à puce de la couleur de la section.
+  .si-liste {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0.35rem 0 0;
+    padding: 0.85rem 0 0;
+    border-top: 1px solid var(--bg-cream);
+    list-style: none;
+
+    li {
+      position: relative;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0.55em;
+        left: 0;
+        width: 0.45rem;
+        height: 0.45rem;
+        border-radius: 50%;
+        background: var(--si-accent);
+      }
+    }
+  }
+
+  .si-actus {
+    margin-bottom: 3rem;
+  }
+
+  // Carte d'une section, cliquable en entier (lien du titre étendu).
   .si-carte {
     position: relative;
     display: flex;
@@ -161,10 +265,7 @@
     }
   }
 
-  .si-actus {
-    margin-bottom: 3rem;
-  }
-
+  // Encadré de contact.
   .si-cta {
     display: flex;
     flex-wrap: wrap;
@@ -173,9 +274,9 @@
     gap: 1rem;
     margin-bottom: 1rem;
     padding: 1.25rem 1.5rem;
-    border: 1px solid #E0A27F;
+    border: 1px solid $si-cta-bord;
     border-radius: 10px;
-    background: #FBE6D8;
+    background: $si-cta;
 
     p {
       margin: 0;
@@ -188,6 +289,98 @@
     color: var(--navy-primary);
     font-size: 1.05rem !important;
     font-weight: 700;
+  }
+
+  // Lien vers l'autre section, en bas de page.
+  .si-autre {
+    margin-top: 2.5rem;
+  }
+
+  .si-autre__surtitre {
+    margin: 0 0 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .si-carte--horizontale {
+    flex-direction: row;
+
+    > img {
+      flex: 0 0 38%;
+      width: 38%;
+      aspect-ratio: auto;
+      align-self: stretch;
+      object-position: 100% 50%;
+    }
+
+    .si-carte__corps .bouton {
+      margin-top: 0.4rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .si-reperes {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .si-blocs {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .si-reperes strong {
+      font-size: 1.02rem;
+    }
+
+    .si-carte--horizontale {
+      flex-direction: column;
+
+      > img {
+        flex-basis: auto;
+        width: 100%;
+        aspect-ratio: 16 / 6;
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------
+// Page d'entrée « Section internationale » (page-section-internationale.php)
+// ---------------------------------------------------------------
+
+// Les deux bandeaux côte à côte (un seul sur téléphone).
+.si-banniere--double {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  background: $si-or;
+
+  // Bandeaux en demi-largeur : on cadre sur la rosace et le mot, à droite du dessin.
+  .si-banniere__dessin {
+    object-position: 100% 50%;
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: minmax(0, 1fr);
+
+    img + img {
+      display: none;
+    }
+  }
+}
+
+.page-si-hub {
+  .si-cartes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 0 0 3rem;
+    padding: 0;
+    list-style: none;
   }
 
   @media (max-width: 760px) {
