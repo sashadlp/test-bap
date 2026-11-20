@@ -44,6 +44,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.4rem; // Espace entre le texte et une flèche (→).
   min-height: 40px;
   padding: 0.45rem 1rem;
   border: 2px solid var(--navy-primary);
@@ -86,5 +87,29 @@ a {
     background: var(--navy-hover);
     border-color: var(--navy-hover);
     color: var(--white) !important;
+  }
+}
+
+// Fil d'Ariane (Infos pratiques, pages rubriques) : Accueil · Rubrique · Page
+.fil-ariane ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+
+  li {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+
+    & + li::before {
+      content: '·';
+      margin-right: 0.25rem;
+    }
+  }
+
+  a {
+    color: var(--text-muted);
   }
 }

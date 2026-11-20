@@ -153,3 +153,23 @@ require get_template_directory() . '/inc/projets.php';
  * Formulaire de la page Contact (envoi par e-mail).
  */
 require get_template_directory() . '/inc/contact.php';
+
+/**
+ * Articles rangés par matière, en cache (travaux des élèves, matière enseignée).
+ */
+require get_template_directory() . '/inc/matieres.php';
+
+/**
+ * Pages rubriques (Orientation, Découverte des métiers).
+ */
+require get_template_directory() . '/inc/rubriques.php';
+
+/**
+ * Page « Les travaux des élèves » : travaux par type, en cache.
+ */
+require get_template_directory() . '/inc/travaux.php';
+
+/**
+ * Pages « Vie au collège » (clubs, ateliers, CVC…) : textes et modèle appliqué automatiquement.
+ */
+require get_template_directory() . '/inc/vie-college.php';

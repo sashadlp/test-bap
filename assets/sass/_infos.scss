@@ -7,30 +7,6 @@ $infos-contact: #FBE6D8;
 $infos-contact-bord: #E0A27F;
 
 .page-infos {
-  // Fil d'Ariane : Accueil · Le collège · Infos pratiques
-  .fil-ariane ol {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    margin: 0 0 0.75rem;
-    padding: 0;
-    list-style: none;
-
-    li {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-
-      & + li::before {
-        content: '·';
-        margin-right: 0.25rem;
-      }
-    }
-
-    a {
-      color: var(--text-muted);
-    }
-  }
-
   .entry-title {
     margin-bottom: 1.5rem;
   }
