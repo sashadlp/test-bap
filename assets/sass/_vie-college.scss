@@ -1,0 +1,752 @@
+@use 'variables' as *;
+
+// Pages « Vie au collège » (page-templates/template-vie-college.php) :
+// Atelier Journalisme, éco-délégués, CVC, Atelier Robotique, Web Radio, CHAM.
+
+.page-vie {
+  // Fil d'Ariane : Accueil · Vie au collège · [page]
+  .fil-ariane ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+
+    li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+
+      & + li::before {
+        content: '·';
+        margin-right: 0.25rem;
+      }
+    }
+
+    a {
+      color: var(--text-muted);
+    }
+  }
+
+  // Bandeau bleu avec un anneau décoratif à droite.
+  .vie-hero {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    padding: 3.5rem 3.5rem 3.25rem;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-hover) 100%);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -60px;
+      width: 320px;
+      height: 320px;
+      border: 56px solid rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .vie-hero__surtitre {
+    margin: 0 0 0.5rem;
+    color: var(--white);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .vie-hero__titre {
+    margin: 0 0 1rem;
+    color: var(--white) !important;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  .vie-hero__intro {
+    max-width: 48rem;
+    margin: 0 0 1.75rem;
+    color: var(--white);
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+
+  .vie-hero__bouton {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0.6rem 1.25rem;
+    border: 2px solid var(--white);
+    border-radius: 6px;
+    color: var(--white);
+    font-weight: 700;
+
+    &:visited,
+    &:focus {
+      color: var(--white);
+    }
+
+    &:hover {
+      background: var(--white);
+      color: var(--navy-primary) !important;
+      text-decoration: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--white);
+      outline-offset: 3px;
+    }
+  }
+
+  // Trois repères sous le bandeau.
+  .vie-reperes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0 0 3.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .vie-repere {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border-card);
+    border-left: 5px solid var(--navy-primary);
+    border-radius: 8px;
+    background: var(--white);
+
+    strong {
+      color: var(--navy-primary);
+      font-size: 1.3rem;
+      line-height: 1.3;
+    }
+
+    span {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    // Numéro 01, 02, 03 : affiché seulement par certaines variantes.
+    .vie-repere__num {
+      display: none;
+      color: var(--navy-primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  // Contenu à gauche, encadrés à droite.
+  .vie-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3.5rem;
+  }
+
+  .vie-contenu {
+    max-width: 52rem;
+  }
+
+  .vie-editeur {
+    margin-bottom: 2rem;
+  }
+
+  .vie-section {
+    margin-bottom: 2.5rem;
+    scroll-margin-top: 1.5rem;
+
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.6rem;
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+  }
+
+  // Liste avec des coches rondes.
+  .vie-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 1.05rem;
+    }
+  }
+
+  .vie-liste__icone {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+
+    circle {
+      fill: var(--navy-primary);
+    }
+
+    path {
+      fill: none;
+      stroke: var(--white);
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+
+  // Encadrés « Sur cette page » et « Une question ? »
+  .vie-cote {
+    position: sticky;
+    top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .vie-encadre {
+    padding: 1.5rem;
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    background: var(--white);
+
+    p {
+      margin: 0 0 1.25rem;
+      font-size: 1rem;
+    }
+
+    .bouton {
+      width: 100%;
+      min-height: 48px;
+      font-size: 1rem;
+    }
+  }
+
+  .vie-encadre__titre {
+    margin: 0 0 1rem !important;
+    color: var(--navy-primary);
+    font-size: 0.95rem !important;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .vie-sommaire {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li + li {
+      border-top: 1px solid var(--border-card);
+    }
+
+    a {
+      display: block;
+      padding: 0.6rem 0;
+      color: var(--text-dark);
+      font-size: 1rem;
+
+      &:visited {
+        color: var(--text-dark);
+      }
+
+      &:hover {
+        color: var(--navy-primary) !important;
+      }
+    }
+  }
+
+  .vie-question {
+    background: var(--bg-cream);
+  }
+
+  // Actualités de la catégorie.
+  .vie-actualites {
+    margin-bottom: 3.5rem;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .vie-actualites__entete {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--navy-primary);
+
+    h2 {
+      margin: 0;
+      font-size: 1.75rem;
+    }
+  }
+
+  .vie-actualites__tout {
+    margin-left: auto;
+    font-weight: 600;
+  }
+
+  .vie-grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Toute la carte est cliquable (lien du titre étendu).
+  .vie-carte {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border-card);
+    border-radius: 10px;
+    background: var(--white);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+
+    &:hover,
+    &:focus-within {
+      transform: translateY(-2px);
+      border-color: var(--navy-primary);
+      box-shadow: 0 10px 24px rgba(4, 35, 78, 0.12);
+    }
+
+    &:focus-within {
+      outline: 2px solid var(--navy-hover);
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      &:hover,
+      &:focus-within {
+        transform: none;
+      }
+    }
+  }
+
+  .vie-carte__corps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.25rem 1.25rem 1.4rem;
+  }
+
+  .vie-carte__date {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .vie-carte__titre {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    a {
+      color: var(--navy-primary);
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
+  // Tablette : les encadrés passent sous le contenu.
+  @media (max-width: 900px) {
+    .vie-layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .vie-cote {
+      position: static;
+    }
+  }
+
+  // Téléphone
+  @media (max-width: 600px) {
+    .vie-hero {
+      padding: 2rem 1.5rem;
+
+      &::after {
+        top: -80px;
+        right: -120px;
+        width: 220px;
+        height: 220px;
+        border-width: 40px;
+      }
+    }
+
+    .vie-hero__intro {
+      font-size: 1rem;
+    }
+
+    .vie-reperes {
+      grid-template-columns: minmax(0, 1fr);
+      margin-bottom: 2.5rem;
+    }
+
+    .vie-grille {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Variantes de mise en page (champ « variante » dans inc/vie-college.php).
+// Même couleurs et même typo que la page Atelier Journalisme (sans variante),
+// seule la disposition change d'une page à l'autre.
+// ---------------------------------------------------------------------------
+
+// Éco-délégués : repères empilés à droite du bandeau, encadrés à gauche, liste en cartes.
+.page-vie--eco {
+  .vie-liste li {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-card);
+    border-radius: 8px;
+    background: var(--white);
+  }
+
+  @media (min-width: 901px) {
+    .vie-tete {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .vie-hero {
+      margin-bottom: 0;
+    }
+
+    .vie-reperes {
+      grid-template-columns: minmax(0, 1fr);
+      grid-auto-rows: 1fr;
+      margin-bottom: 0;
+    }
+
+    .vie-repere {
+      justify-content: center;
+    }
+
+    .vie-layout {
+      grid-template-columns: 350px minmax(0, 1fr);
+    }
+
+    .vie-cote {
+      order: -1;
+    }
+  }
+}
+
+// CVC : bandeau centré, repères numérotés, sections en cartes sur deux colonnes.
+.page-vie--cvc {
+  .vie-hero {
+    text-align: center;
+
+    &::after {
+      top: auto;
+      right: auto;
+      bottom: -160px;
+      left: -80px;
+    }
+  }
+
+  .vie-hero__intro {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .vie-repere {
+    align-items: center;
+    border-left-width: 1px;
+    border-top: 5px solid var(--navy-primary);
+    text-align: center;
+
+    .vie-repere__num {
+      display: block;
+    }
+  }
+
+  .vie-section {
+    padding: 1.5rem;
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    background: var(--white);
+  }
+
+  @media (min-width: 601px) {
+    .vie-contenu {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .vie-section {
+      margin: 0;
+    }
+
+    .vie-section:first-of-type,
+    .vie-editeur {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+// Atelier Robotique : trame de points dans le bandeau, repères numérotés sans cadre,
+// liste en tuiles sur deux colonnes, cartes d'actualités soulignées en haut.
+.page-vie--robotique {
+  .vie-hero::after {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 40%;
+    height: auto;
+    border: 0;
+    border-radius: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1.5px, transparent 1.5px);
+    background-size: 18px 18px;
+  }
+
+  .vie-repere {
+    padding: 1rem 0 0;
+    border: 0;
+    border-top: 2px solid var(--navy-primary);
+    border-radius: 0;
+    background: none;
+
+    .vie-repere__num {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  .vie-liste {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+
+    li {
+      padding: 1rem;
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      background: var(--white);
+    }
+  }
+
+  .vie-carte {
+    border-top: 4px solid var(--navy-primary);
+  }
+
+  @media (max-width: 600px) {
+    .vie-liste {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
+
+// Web Radio : barres d'égaliseur dans le bandeau, repères dans un seul bloc,
+// sections reliées par une ligne verticale, actualités en liste.
+.page-vie--radio {
+  .vie-hero::after {
+    top: auto;
+    right: 3rem;
+    bottom: 0;
+    width: 260px;
+    height: 70%;
+    border: 0;
+    border-radius: 0;
+    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 8px, transparent 8px 18px);
+    -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 100%);
+    mask-image: linear-gradient(to top, #000 0%, transparent 100%);
+  }
+
+  .vie-reperes {
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    background: var(--white);
+  }
+
+  .vie-repere {
+    border: 0;
+    border-radius: 0;
+
+    & + .vie-repere {
+      border-left: 1px solid var(--border-card);
+    }
+  }
+
+  .vie-contenu {
+    padding-left: 2rem;
+    border-left: 2px solid var(--border-card);
+  }
+
+  .vie-section {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0.55rem;
+      left: calc(-2rem - 8px);
+      width: 14px;
+      height: 14px;
+      border: 3px solid var(--bg-cream);
+      border-radius: 50%;
+      background: var(--navy-primary);
+    }
+  }
+
+  .vie-grille {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .vie-carte__corps {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .vie-carte__date {
+    flex-shrink: 0;
+    min-width: 7rem;
+  }
+
+  @media (max-width: 600px) {
+    .vie-repere + .vie-repere {
+      border-top: 1px solid var(--border-card);
+      border-left: 0;
+    }
+
+    .vie-contenu {
+      padding-left: 1.5rem;
+    }
+
+    .vie-section::before {
+      left: calc(-1.5rem - 8px);
+    }
+
+    .vie-carte__corps {
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+  }
+}
+
+// CHAM : repères posés à cheval sur le bandeau, liste en pastilles,
+// encadrés côte à côte sous le contenu.
+.page-vie--cham {
+  .vie-hero {
+    padding-bottom: 6.5rem;
+
+    &::after {
+      top: auto;
+      bottom: -180px;
+      right: -40px;
+      width: 420px;
+      height: 420px;
+    }
+  }
+
+  .vie-reperes {
+    position: relative;
+    z-index: 2;
+    margin-top: -5rem;
+    padding: 0 2rem;
+  }
+
+  .vie-repere {
+    border-left-width: 1px;
+    border-bottom: 5px solid var(--navy-primary);
+    box-shadow: 0 10px 24px rgba(4, 35, 78, 0.12);
+  }
+
+  .vie-liste {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    li {
+      align-items: center;
+      padding: 0.5rem 1rem 0.5rem 0.6rem;
+      border: 1px solid var(--border-card);
+      border-radius: 999px;
+      background: var(--white);
+    }
+  }
+
+  .vie-liste__icone {
+    margin-top: 0;
+  }
+
+  .vie-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .vie-cote {
+    position: static;
+  }
+
+  @media (min-width: 701px) {
+    .vie-cote {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .vie-hero {
+      padding-bottom: 5rem;
+    }
+
+    .vie-reperes {
+      margin-top: -3.5rem;
+      padding: 0 1rem;
+    }
+  }
+}

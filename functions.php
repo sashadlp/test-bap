@@ -163,3 +163,8 @@ require get_template_directory() . '/inc/matieres.php';
  * Pages rubriques (Orientation, Découverte des métiers).
  */
 require get_template_directory() . '/inc/rubriques.php';
+
+/**
+ * Pages « Vie au collège » (clubs, ateliers, CVC…) : textes et modèle appliqué automatiquement.
+ */
+require get_template_directory() . '/inc/vie-college.php';
