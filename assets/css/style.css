@@ -88,6 +88,8 @@ a:hover {
 
 .site-header,
 header.wp-block-group {
+  position: relative;
+  z-index: 20;
   background-color: var(--bg-cream) !important;
   border-bottom: 1px solid var(--border-card);
   padding: 0.9rem 2rem !important;

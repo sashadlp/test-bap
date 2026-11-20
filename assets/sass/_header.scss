@@ -2,6 +2,9 @@
 
 .site-header,
 header.wp-block-group {
+  // Au-dessus du contenu (ex. filtres collants de la page matières) : les menus déroulants passent devant.
+  position: relative;
+  z-index: 20;
   background-color: var(--bg-cream) !important;
   border-bottom: 1px solid var(--border-card);
   padding: 0.9rem 2rem !important;
