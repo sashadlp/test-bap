@@ -20,6 +20,7 @@ get_template_part(
 	null,
 	array(
 		'titre'   => 'Section internationale arabe',
+		'chapo'   => 'Un parcours bilingue et biculturel pour maîtriser l’arabe littéraire et s’ouvrir à la richesse des cultures du monde arabe.',
 		'texte'   => 'La Section Internationale Arabe du Collège Les Renardières propose aux élèves un parcours d’excellence bilingue et biculturel, alliant l’enseignement approfondi de la langue et de la littérature arabes à l’histoire-géographie. Encadré par une équipe pédagogique dédiée et favorisé par des effectifs réduits, ce cursus permet de développer une maîtrise solide de l’arabe littéraire tout en s’ouvrant à la richesse des cultures du monde arabe, préparant ainsi les collégiens au Diplôme National du Brevet option internationale (DNBi).',
 		'dessin'  => 'si-arabe-banniere.svg',
 		'couleur' => 'arabe',

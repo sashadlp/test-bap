@@ -2686,37 +2686,143 @@ footer.wp-block-group .footer-bottom,
   }
 }
 
-.si-banniere {
-  height: clamp(180px, 30vw, 380px);
+.page-si,
+.si-hero,
+.si-accent--arabe {
+  --si-accent: #D9B66C;
+  --si-accent-texte: #8A6420;
+  --si-accent-clair: #E8CB8A;
+  --si-accent-sur: #04234E;
+}
+
+.si-accent--americaine {
+  --si-accent: #B22234;
+  --si-accent-texte: #B22234;
+  --si-accent-clair: #F3A6AE;
+  --si-accent-sur: #FFFFFF;
+}
+
+.si-bouton--clair {
+  border-color: var(--white);
+  background: var(--white);
+}
+.si-bouton--clair, .si-bouton--clair:visited, .si-bouton--clair:focus {
+  color: var(--navy-primary);
+}
+.si-bouton--clair:hover {
+  border-color: var(--bg-cream);
+  background: var(--bg-cream);
+}
+
+.si-bouton--contour {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+}
+.si-bouton--contour, .si-bouton--contour:visited, .si-bouton--contour:focus {
+  color: var(--white);
+}
+.si-bouton--contour:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white) !important;
+}
+
+.si-hero {
+  position: relative;
+  isolation: isolate;
   overflow: hidden;
+  border-bottom: 5px solid var(--si-accent);
   background: var(--navy-primary);
 }
-.si-banniere img {
+.si-hero .fil-ariane ol {
+  margin-bottom: clamp(1.5rem, 4vw, 2.75rem);
+}
+.si-hero .fil-ariane li,
+.si-hero .fil-ariane a,
+.si-hero .fil-ariane a:visited {
+  color: rgba(255, 255, 255, 0.78);
+}
+.si-hero .fil-ariane a:hover {
+  color: var(--white) !important;
+}
+.si-hero .bouton {
+  min-height: 46px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+.si-hero .bouton:focus-visible {
+  outline-color: var(--white);
+}
+
+.si-hero__fond {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.si-hero__fond img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.si-banniere .si-banniere__dessin {
   object-position: 82% 50%;
 }
-
-.page-si {
-  --si-accent: #D9B66C;
-  --si-accent-texte: #8A6420;
+.si-hero__fond::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(4, 35, 78, 0.94) 0%, rgba(4, 35, 78, 0.78) 45%, rgba(4, 35, 78, 0.2) 100%);
 }
 
-.page-si--americaine {
-  --si-accent: #B22234;
-  --si-accent-texte: #B22234;
+.si-hero__contenu {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem) 1.5rem clamp(5rem, 9vw, 6.5rem);
 }
 
-.page-si .si-surtitre {
-  margin: 0 0 0.4rem;
-  color: var(--si-accent-texte);
+.si-hero__surtitre {
+  margin: 0 0 0.6rem;
+  color: var(--si-accent-clair);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.si-hero__titre {
+  max-width: 18ch;
+  margin: 0 0 1rem;
+  color: var(--white) !important;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.si-hero__chapo {
+  max-width: 38rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1.02rem, 1.8vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.si-hero__boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.page-container.page-si--section {
+  margin-top: 0;
+}
+
+.page-si .si-etiquette {
+  margin: 0;
+  color: var(--si-accent-texte) !important;
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .page-si .si-titre {
@@ -2726,7 +2832,7 @@ footer.wp-block-group .footer-bottom,
 }
 .page-si .si-texte {
   max-width: 72ch;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   padding-left: 1.1rem;
   border-left: 4px solid var(--si-accent);
 }
@@ -2735,40 +2841,76 @@ footer.wp-block-group .footer-bottom,
   font-size: clamp(1.02rem, 1.6vw, 1.12rem);
   line-height: 1.8;
 }
+.page-si .si-texte p:last-child {
+  margin-bottom: 0;
+}
 .page-si .si-reperes {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin: 0 0 3rem;
+  gap: 1rem;
+  margin: -3.5rem 0 3.5rem;
   padding: 0;
   list-style: none;
 }
 .page-si .si-reperes li {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  padding: 1.1rem 1.2rem;
+  gap: 0.3rem;
+  padding: 1.25rem 1.3rem;
   border: 1px solid var(--border-card);
   border-top: 4px solid var(--si-accent);
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--white);
+  box-shadow: 0 12px 28px rgba(4, 35, 78, 0.1);
 }
 .page-si .si-reperes strong {
   color: var(--navy-primary);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1.25;
 }
 .page-si .si-reperes span {
   color: var(--text-muted);
   font-size: 0.85rem;
-  line-height: 1.4;
+  line-height: 1.45;
 }
-.page-si .si-intertitre {
-  margin: 0 0 1.25rem;
-  font-size: 1.5rem;
+.page-si .si-intro {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 1rem 2.5rem;
+  margin-bottom: 3.5rem;
+}
+.page-si .si-intro .si-etiquette::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  margin-top: 0.6rem;
+  background: var(--si-accent);
+}
+.page-si .si-intro .si-texte {
+  max-width: 68ch;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.page-si .si-intro .si-texte p {
+  font-size: clamp(1.05rem, 1.7vw, 1.18rem);
 }
 .page-si .si-programme {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 1.5rem;
+}
+.page-si .si-entete {
+  margin-bottom: 1.5rem;
+}
+.page-si .si-entete .si-etiquette {
+  margin-bottom: 0.35rem;
+}
+.page-si .si-intertitre {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
 }
 .page-si .si-blocs {
   display: grid;
@@ -2778,16 +2920,30 @@ footer.wp-block-group .footer-bottom,
 .page-si .si-bloc {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  padding: 1.4rem 1.5rem 1.5rem;
+  gap: 0.65rem;
+  padding: 1.6rem 1.6rem 1.7rem;
   border: 1px solid var(--border-card);
   border-radius: 14px;
   background: var(--white);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.page-si .si-bloc:hover {
+  transform: translateY(-3px);
+  border-color: var(--si-accent);
+  box-shadow: 0 16px 32px rgba(4, 35, 78, 0.1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-si .si-bloc {
+    transition: none;
+  }
+  .page-si .si-bloc:hover {
+    transform: none;
+  }
 }
 .page-si .si-bloc h3 {
   margin: 0;
   color: var(--navy-primary);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1.3;
 }
 .page-si .si-bloc > p {
@@ -2797,16 +2953,24 @@ footer.wp-block-group .footer-bottom,
   line-height: 1.6;
 }
 .page-si .si-bloc__numero {
-  color: var(--si-accent-texte);
-  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-bottom: 0.35rem;
+  border-radius: 50%;
+  background: var(--si-accent);
+  color: var(--si-accent-sur);
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  line-height: 1;
 }
 .page-si .si-liste {
   display: grid;
   gap: 0.45rem;
   margin: 0.35rem 0 0;
-  padding: 0.85rem 0 0;
+  padding: 0.9rem 0 0;
   border-top: 1px solid var(--bg-cream);
   list-style: none;
 }
@@ -2827,7 +2991,7 @@ footer.wp-block-group .footer-bottom,
   background: var(--si-accent);
 }
 .page-si .si-actus {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 .page-si .si-carte {
   position: relative;
@@ -2886,6 +3050,9 @@ footer.wp-block-group .footer-bottom,
   font-size: 0.93rem;
   line-height: 1.6;
 }
+.page-si .si-carte .si-etiquette {
+  font-size: 0.75rem;
+}
 .page-si .si-carte__corps {
   display: flex;
   flex: 1;
@@ -2919,50 +3086,101 @@ footer.wp-block-group .footer-bottom,
   font-size: 1.05rem !important;
   font-weight: 700;
 }
-.page-si .si-autre {
-  margin-top: 2.5rem;
+.page-si .si-final {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
 }
-.page-si .si-autre__surtitre {
-  margin: 0 0 0.75rem;
-  color: var(--text-muted);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.page-si .si-final--seul {
+  grid-template-columns: minmax(0, 1fr);
 }
-.page-si .si-carte--horizontale {
-  flex-direction: row;
+.page-si .si-cta--fonce {
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  border: 0;
+  border-bottom: 5px solid var(--si-accent);
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-hover) 100%);
 }
-.page-si .si-carte--horizontale > img {
-  flex: 0 0 38%;
-  width: 38%;
-  aspect-ratio: auto;
-  align-self: stretch;
-  object-position: 100% 50%;
+.page-si .si-cta--fonce::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  bottom: -90px;
+  width: 260px;
+  height: 260px;
+  border: 40px solid rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
 }
-.page-si .si-carte--horizontale .si-carte__corps .bouton {
-  margin-top: 0.4rem;
+.page-si .si-cta--fonce p {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.98rem;
+}
+.page-si .si-cta--fonce .si-cta__titre {
+  margin-bottom: 0 !important;
+  color: var(--white);
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem) !important;
+  line-height: 1.25;
+}
+.page-si .si-cta--fonce .bouton {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.5rem;
+}
+.page-si .si-cta--fonce .bouton:focus-visible {
+  outline-color: var(--white);
 }
 @media (max-width: 900px) {
   .page-si .si-reperes {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .page-si .si-blocs {
+  .page-si .si-intro,
+  .page-si .si-blocs,
+  .page-si .si-final {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 @media (max-width: 600px) {
+  .page-si .si-reperes {
+    gap: 0.75rem;
+    margin-top: -2.75rem;
+  }
+  .page-si .si-reperes li {
+    padding: 1rem;
+  }
   .page-si .si-reperes strong {
     font-size: 1.02rem;
   }
-  .page-si .si-carte--horizontale {
-    flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .si-hero__fond::after {
+    background: rgba(4, 35, 78, 0.86);
   }
-  .page-si .si-carte--horizontale > img {
-    flex-basis: auto;
-    width: 100%;
-    aspect-ratio: 16/6;
-  }
+}
+.si-banniere {
+  height: clamp(180px, 30vw, 380px);
+  overflow: hidden;
+  background: var(--navy-primary);
+}
+.si-banniere img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.si-banniere .si-banniere__dessin {
+  object-position: 82% 50%;
 }
 
 .si-banniere--double {
