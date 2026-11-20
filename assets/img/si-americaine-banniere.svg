@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 480" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Semis d’étoiles">
+	<defs>
+		<linearGradient id="fond" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#04234E"/>
+			<stop offset="1" stop-color="#0A3775"/>
+		</linearGradient>
+		<!-- Étoile à 5 branches. -->
+		<path id="etoile" d="M0 -10 L2.35 -3.24 L9.51 -3.09 L3.8 1.24 L5.88 8.09 L0 4 L-5.88 8.09 L-3.8 1.24 L-9.51 -3.09 L-2.35 -3.24 Z"/>
+		<!-- Semis d'étoiles en quinconce. -->
+		<pattern id="semis" width="90" height="90" patternUnits="userSpaceOnUse">
+			<use href="#etoile" transform="translate(22 22) scale(0.75)" fill="#FFFFFF" fill-opacity="0.16"/>
+			<use href="#etoile" transform="translate(67 67) scale(0.75)" fill="#FFFFFF" fill-opacity="0.16"/>
+		</pattern>
+	</defs>
+
+	<rect width="1600" height="480" fill="url(#fond)"/>
+	<rect width="1600" height="480" fill="url(#semis)"/>
+
+	<!-- Liseré rouge en bas. -->
+	<rect y="472" width="1600" height="8" fill="#B22234" fill-opacity="0.9"/>
+</svg>
