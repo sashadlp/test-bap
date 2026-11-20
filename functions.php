@@ -9,7 +9,7 @@
 
 if ( ! defined( 'LES_RENARDIERE_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'LES_RENARDIERE_VERSION', '2.0.1' );
+	define( 'LES_RENARDIERE_VERSION', '2.0.2' );
 }
 
 /**
