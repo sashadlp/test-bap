@@ -9,6 +9,18 @@ footer.wp-block-group,
   width: 100%;
   max-width: none !important;
 
+  // Tout le texte hérite du blanc du pied de page : sinon la règle `p, li, span`
+  // de _base.scss colore en foncé le <span> des libellés du menu.
+  p,
+  li,
+  span,
+  a,
+  h2,
+  h3,
+  h4 {
+    color: inherit;
+  }
+
   .footer-columns {
     max-width: 650px;
     margin: 0 auto 2rem !important;

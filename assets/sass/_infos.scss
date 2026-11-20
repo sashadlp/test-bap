@@ -1,0 +1,316 @@
+@use 'variables' as *;
+
+// Page « Infos pratiques » (page-infos-pratiques.php)
+
+$infos-encadre: #ECE8DF;
+$infos-contact: #FBE6D8;
+$infos-contact-bord: #E0A27F;
+
+.page-infos {
+  // Fil d'Ariane : Accueil · Le collège · Infos pratiques
+  .fil-ariane ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin: 0 0 0.75rem;
+    padding: 0;
+    list-style: none;
+
+    li {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+
+      & + li::before {
+        content: '·';
+        margin-right: 0.25rem;
+      }
+    }
+
+    a {
+      color: var(--text-muted);
+    }
+  }
+
+  .entry-title {
+    margin-bottom: 1.5rem;
+  }
+
+  // Sous-navigation à gauche, contenu à droite.
+  .infos-layout {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .infos-sousnav {
+    position: sticky;
+    top: 1.5rem;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      display: block;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--border-card);
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--text-dark);
+      font-size: 0.85rem;
+
+      &:hover,
+      &[aria-current] {
+        border-color: var(--navy-primary);
+        color: var(--navy-primary) !important;
+        text-decoration: none;
+      }
+
+      &[aria-current] {
+        font-weight: 600;
+        box-shadow: inset 3px 0 0 var(--navy-primary);
+      }
+    }
+  }
+
+  .infos-section {
+    margin-bottom: 2.5rem;
+    scroll-margin-top: 1.5rem;
+
+    h2 {
+      margin: 0 0 1rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  .infos-section__intro {
+    margin: -0.5rem 0 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  // Lignes « [Niveau] · [date] · [heure] · [lieu] » et périodes du calendrier.
+  .infos-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .infos-liste__ligne {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.75rem;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--border-card);
+    border-radius: 6px;
+    background: var(--white);
+    font-size: 0.9rem;
+
+    strong {
+      min-width: 3rem;
+      color: var(--navy-primary);
+    }
+
+    &.is-passe {
+      opacity: 0.6;
+    }
+  }
+
+  .infos-liste__vide {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .infos-badge {
+    display: inline-block;
+    margin-left: 0.35rem;
+    padding: 0.05rem 0.45rem;
+    border-radius: 999px;
+    background: var(--navy-primary);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1.5;
+    vertical-align: middle;
+  }
+
+  .infos-badge--passe {
+    margin-left: auto;
+    background: var(--border-card);
+    color: var(--text-dark);
+  }
+
+  // Onglets 6e / 5e / 4e / 3e
+  .infos-onglets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .infos-onglet {
+    min-width: 44px;
+    min-height: 36px;
+    padding: 0.35rem 1rem;
+    border: 1px solid var(--navy-primary);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--navy-primary);
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--bg-cream);
+    }
+
+    &[aria-selected='true'] {
+      background: var(--navy-primary);
+      color: var(--white);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--navy-hover);
+      outline-offset: 2px;
+    }
+  }
+
+  .infos-panneau {
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border-card);
+    border-radius: 8px;
+    background: $infos-encadre;
+
+    &:focus-visible {
+      outline: 2px solid var(--navy-hover);
+      outline-offset: 2px;
+    }
+
+    h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  .infos-panneau__colonnes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .infos-fournitures {
+    margin: 0;
+    padding-left: 1.1rem;
+
+    li {
+      margin-bottom: 0.35rem;
+      font-size: 0.88rem;
+    }
+  }
+
+  // Boutons : contour (par défaut) ou plein (bleu marine).
+  .infos-bouton {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0.45rem 1rem;
+    border: 2px solid var(--navy-primary);
+    border-radius: 6px;
+    background: var(--white);
+    color: var(--navy-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    &:hover {
+      background: var(--bg-cream);
+      color: var(--navy-primary) !important;
+      text-decoration: none;
+    }
+  }
+
+  .infos-bouton--plein {
+    background: var(--navy-primary);
+    color: var(--white);
+
+    &:hover {
+      background: var(--navy-hover);
+      border-color: var(--navy-hover);
+      color: var(--white) !important;
+    }
+  }
+
+  // Encadré « Vous ne trouvez pas l'information ? »
+  .infos-contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.4rem;
+    border: 1px solid $infos-contact-bord;
+    border-radius: 8px;
+    background: $infos-contact;
+
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .infos-contact__titre {
+      color: var(--navy-primary);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+  }
+
+  // Encadré visible seulement par les admins (PDF manquants).
+  .infos-diagnostic {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid $infos-contact-bord;
+    border-radius: 8px;
+    background: $infos-contact;
+
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+  }
+
+  // Mobile : la sous-navigation passe au-dessus, en ligne.
+  @media (max-width: 800px) {
+    .infos-layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .infos-sousnav {
+      position: static;
+
+      ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    .infos-panneau {
+      padding: 1rem;
+    }
+
+    .infos-panneau__colonnes {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
