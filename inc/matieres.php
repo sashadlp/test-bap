@@ -54,6 +54,31 @@ function les_renardiere_extrait_court( $post, $mots = 16 ) {
 }
 
 /**
+ * Données d'une carte d'article (template-parts/carte-article.php), à mettre en cache.
+ *
+ * @param WP_Post $post Article.
+ * @return array
+ */
+function les_renardiere_article_resume( $post ) {
+	return array(
+		'titre'    => get_the_title( $post ),
+		'lien'     => get_permalink( $post ),
+		'date_iso' => get_the_date( 'c', $post ),
+		'date'     => get_the_date( 'j M Y', $post ),
+		'extrait'  => les_renardiere_extrait_court( $post ),
+		'image'    => get_the_post_thumbnail(
+			$post,
+			'medium',
+			array(
+				'alt'     => '',
+				'loading' => 'lazy',
+				'sizes'   => '(max-width: 600px) 100vw, 300px',
+			)
+		),
+	);
+}
+
+/**
  * Sections par matière, prêtes à afficher (en cache).
  *
  * @return array{sections: array, vides: string[], manquants: string[]}
@@ -120,32 +145,12 @@ function les_renardiere_matieres_donnees() {
 			}
 		);
 
-		$articles = array();
-		foreach ( $q->posts as $post ) {
-			$articles[] = array(
-				'titre'    => get_the_title( $post ),
-				'lien'     => get_permalink( $post ),
-				'date_iso' => get_the_date( 'c', $post ),
-				'date'     => get_the_date( 'j M Y', $post ),
-				'extrait'  => les_renardiere_extrait_court( $post ),
-				'image'    => get_the_post_thumbnail(
-					$post,
-					'medium',
-					array(
-						'alt'     => '',
-						'loading' => 'lazy',
-						'sizes'   => '(max-width: 600px) 100vw, 300px',
-					)
-				),
-			);
-		}
-
 		$donnees['sections'][] = array(
 			'slug'     => $cle,
 			'nom'      => $nom,
 			'total'    => (int) $q->found_posts,
 			'lien'     => get_category_link( $cats[0] ),
-			'articles' => $articles,
+			'articles' => array_map( 'les_renardiere_article_resume', $q->posts ),
 		);
 	}
 
@@ -167,6 +172,7 @@ function les_renardiere_matieres_donnees() {
  */
 function les_renardiere_matieres_vider_cache() {
 	delete_transient( 'les_renardiere_matieres' );
+	delete_transient( 'les_renardiere_rubriques' ); // Actualités des pages rubriques (inc/rubriques.php).
 }
 add_action( 'save_post_post', 'les_renardiere_matieres_vider_cache' );
 add_action( 'deleted_post', 'les_renardiere_matieres_vider_cache' );

@@ -2,8 +2,10 @@
 
 // Articles rangés par matière (page-templates/template-travaux-eleves.php) :
 // pages « Travaux des élèves » et « Matière enseignée ».
+// Boutons de filtre, en-têtes de section et cartes servent aussi aux pages rubriques (_rubrique.scss).
 
-.page-travaux {
+.page-travaux,
+.page-rubrique {
   .travaux-entete {
     margin-bottom: 1.25rem;
 
@@ -36,6 +38,8 @@
   }
 
   .matiere-filtre {
+    font-family: inherit;
+    cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -65,7 +69,8 @@
       outline-offset: 2px;
     }
 
-    &[aria-current] {
+    &[aria-current],
+    &[aria-selected='true'] {
       border-color: var(--navy-primary);
       background: var(--navy-primary);
       color: var(--white) !important;

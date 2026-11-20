@@ -158,3 +158,8 @@ require get_template_directory() . '/inc/contact.php';
  * Articles rangés par matière, en cache (travaux des élèves, matière enseignée).
  */
 require get_template_directory() . '/inc/matieres.php';
+
+/**
+ * Pages rubriques (Orientation, Découverte des métiers).
+ */
+require get_template_directory() . '/inc/rubriques.php';
