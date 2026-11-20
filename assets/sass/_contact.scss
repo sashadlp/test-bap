@@ -1,0 +1,253 @@
+@use 'variables' as *;
+
+// Page « Contact » (page-contact.php)
+
+$contact-succes: #E3F1E6;
+$contact-succes-bord: #8DBF98;
+$contact-alerte: #FBE6D8;
+$contact-alerte-bord: #E0A27F;
+
+// Bandeau pleine largeur sous l'en-tête : image mise en avant, sinon bleu marine.
+.contact-banniere {
+  height: clamp(160px, 26vw, 320px);
+  background-color: var(--navy-primary);
+  background-image: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-hover) 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+.page-contact {
+  .contact-titre {
+    margin: 0 0 2rem;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+  }
+
+  .contact-parents {
+    margin-bottom: 3rem;
+  }
+
+  .contact-parents__intro {
+    margin: 0 0 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  // Formulaire à gauche, questions fréquentes à droite.
+  .contact-grille {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .contact-carte {
+    padding: 1.5rem;
+    border: 1px solid var(--border-card);
+    border-radius: 8px;
+    background: var(--white);
+    scroll-margin-top: 1.5rem;
+  }
+
+  .contact-form {
+    p {
+      margin: 0 0 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea {
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 42px;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border-card);
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--text-dark);
+      font: inherit;
+      font-size: 0.9rem;
+
+      &:focus {
+        border-color: var(--navy-primary);
+        outline: 2px solid var(--navy-primary);
+        outline-offset: 0;
+      }
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+  }
+
+  // Champ piège : sorti de l'écran (pas display:none, que certains robots repèrent).
+  .contact-form__piege {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .contact-form__note {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  // Message après envoi.
+  .contact-etat {
+    margin: 0 0 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid $contact-alerte-bord;
+    border-radius: 6px;
+    background: $contact-alerte;
+    font-size: 0.88rem;
+  }
+
+  .contact-etat--envoye {
+    border-color: $contact-succes-bord;
+    background: $contact-succes;
+  }
+
+  // Questions fréquentes (accordéon <details>).
+  .contact-faq__item {
+    margin-bottom: 0.6rem;
+    border: 1px solid var(--border-card);
+    border-radius: 6px;
+    background: var(--white);
+
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      list-style: none;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: '+';
+        flex-shrink: 0;
+        color: var(--navy-primary);
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      &:hover {
+        color: var(--navy-primary);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--navy-hover);
+        outline-offset: 2px;
+      }
+    }
+
+    &[open] summary {
+      border-bottom: 1px solid var(--border-card);
+
+      &::after {
+        content: '−';
+      }
+    }
+
+    p {
+      margin: 0;
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  // Adresse et services : centrés.
+  .contact-adresse,
+  .contact-etablissement {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .contact-adresse address {
+    margin: 0 0 1rem;
+    font-style: normal;
+  }
+
+  .contact-etablissement h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-services {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .contact-service {
+    padding: 1.25rem;
+    border: 1px solid var(--border-card);
+    border-radius: 8px;
+    background: var(--white);
+
+    h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    p {
+      margin: 0 0 0.25rem;
+    }
+  }
+
+  .contact-service__horaires {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .contact-service__boutons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .contact-grille,
+    .contact-services {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .contact-carte {
+      padding: 1.1rem;
+    }
+  }
+}

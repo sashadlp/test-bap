@@ -148,3 +148,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Types de contenu, taxonomies et champs repris de l'ancien thème à blocs.
  */
 require get_template_directory() . '/inc/projets.php';
+
+/**
+ * Formulaire de la page Contact (envoi par e-mail).
+ */
+require get_template_directory() . '/inc/contact.php';

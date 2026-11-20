@@ -220,37 +220,6 @@ $infos-contact-bord: #E0A27F;
     }
   }
 
-  // Boutons : contour (par défaut) ou plein (bleu marine).
-  .infos-bouton {
-    display: inline-flex;
-    align-items: center;
-    min-height: 40px;
-    padding: 0.45rem 1rem;
-    border: 2px solid var(--navy-primary);
-    border-radius: 6px;
-    background: var(--white);
-    color: var(--navy-primary);
-    font-size: 0.85rem;
-    font-weight: 600;
-
-    &:hover {
-      background: var(--bg-cream);
-      color: var(--navy-primary) !important;
-      text-decoration: none;
-    }
-  }
-
-  .infos-bouton--plein {
-    background: var(--navy-primary);
-    color: var(--white);
-
-    &:hover {
-      background: var(--navy-hover);
-      border-color: var(--navy-hover);
-      color: var(--white) !important;
-    }
-  }
-
   // Encadré « Vous ne trouvez pas l'information ? »
   .infos-contact {
     display: flex;
