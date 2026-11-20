@@ -186,35 +186,8 @@ body {
   margin: 0 !important;
 }
 
-// Page « Travaux des élèves » (page-templates/template-travaux-eleves.php)
+// Page « Travaux des élèves » : encadré admin (le reste est dans _matieres.scss).
 .page-travaux {
-  .filtre-matieres {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 0.75rem;
-    margin-bottom: 2rem;
-
-    label {
-      font-weight: 600;
-    }
-
-    select {
-      min-height: 44px;
-      padding: 0 0.75rem;
-      border: 1px solid var(--border-card);
-      border-radius: 6px;
-      background: var(--white);
-      color: var(--text-dark);
-      font: inherit;
-    }
-  }
-
-  .section-matiere {
-    padding: 0;
-    margin-bottom: 2.5rem;
-  }
-
   // Encadré de diagnostic, visible seulement par les admins.
   .travaux-diagnostic {
     margin-bottom: 2rem;
@@ -234,10 +207,4 @@ body {
       padding-left: 1.25rem;
     }
   }
-}
-
-// Bouton « Voir tous les articles » sous chaque matière (travaux des élèves, matière enseignée).
-.page-travaux .section-matiere__plus {
-  margin: -0.5rem 0 0;
-  text-align: center;
 }

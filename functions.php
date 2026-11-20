@@ -153,3 +153,8 @@ require get_template_directory() . '/inc/projets.php';
  * Formulaire de la page Contact (envoi par e-mail).
  */
 require get_template_directory() . '/inc/contact.php';
+
+/**
+ * Articles rangés par matière, en cache (travaux des élèves, matière enseignée).
+ */
+require get_template_directory() . '/inc/matieres.php';

@@ -1183,6 +1183,219 @@ footer.wp-block-group .footer-bottom,
   }
 }
 
+.page-travaux .travaux-entete {
+  margin-bottom: 1.25rem;
+}
+.page-travaux .travaux-entete .page-title {
+  margin-bottom: 0.35rem;
+}
+.page-travaux .travaux-entete__intro {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+.page-travaux .matiere-filtres {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin: 0 -1.5rem 2rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--bg-cream);
+  border-bottom: 1px solid var(--border-card);
+}
+.page-travaux .matiere-filtres__liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.page-travaux .matiere-filtre {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 36px;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--border-card);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--text-dark);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.page-travaux .matiere-filtre:visited {
+  color: var(--text-dark);
+}
+.page-travaux .matiere-filtre:hover {
+  border-color: var(--navy-primary);
+  color: var(--navy-primary) !important;
+  text-decoration: none;
+}
+.page-travaux .matiere-filtre:focus-visible {
+  outline: 2px solid var(--navy-hover);
+  outline-offset: 2px;
+}
+.page-travaux .matiere-filtre[aria-current] {
+  border-color: var(--navy-primary);
+  background: var(--navy-primary);
+  color: var(--white) !important;
+}
+.page-travaux .matiere-filtre[aria-current] .matiere-filtre__nombre {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+}
+.page-travaux .matiere-filtre__nombre {
+  min-width: 1.4rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  background: var(--bg-cream);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4rem;
+  text-align: center;
+}
+.page-travaux .section-matiere {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 5rem;
+}
+.page-travaux .section-matiere__entete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--navy-primary);
+}
+.page-travaux .section-matiere__entete h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+.page-travaux .section-matiere__nombre {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.page-travaux .section-matiere__tout {
+  margin-left: auto;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.page-travaux .section-matiere__tout:hover span[aria-hidden] {
+  margin-left: 0.2rem;
+}
+.page-travaux .matiere-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.page-travaux .carte-matiere {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  background: var(--white);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.page-travaux .carte-matiere:hover, .page-travaux .carte-matiere:focus-within {
+  transform: translateY(-2px);
+  border-color: var(--navy-primary);
+  box-shadow: 0 10px 24px rgba(4, 35, 78, 0.12);
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-travaux .carte-matiere {
+    transition: none;
+  }
+  .page-travaux .carte-matiere:hover, .page-travaux .carte-matiere:focus-within {
+    transform: none;
+  }
+}
+.page-travaux .carte-matiere__image {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--bg-cream);
+}
+.page-travaux .carte-matiere__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-travaux .carte-matiere__corps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.85rem 1rem 1rem;
+}
+.page-travaux .carte-matiere__date {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+.page-travaux .carte-matiere__titre {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.page-travaux .carte-matiere__titre a {
+  color: var(--navy-primary);
+  text-decoration: none;
+}
+.page-travaux .carte-matiere__titre a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.page-travaux .carte-matiere__titre a:hover {
+  text-decoration: none;
+}
+.page-travaux .carte-matiere__titre a:focus-visible {
+  outline: none;
+}
+.page-travaux .carte-matiere:focus-within {
+  outline: 2px solid var(--navy-hover);
+  outline-offset: 2px;
+}
+.page-travaux .carte-matiere__extrait {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+@media (max-width: 600px) {
+  .page-travaux .matiere-filtres {
+    margin: 0 -1.5rem 1.5rem;
+    padding: 0.6rem 1.5rem;
+  }
+  .page-travaux .matiere-filtres__liste {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+  }
+  .page-travaux .matiere-filtres__liste::-webkit-scrollbar {
+    display: none;
+  }
+  .page-travaux .matiere-filtre {
+    scroll-snap-align: start;
+  }
+  .page-travaux .matiere-grille {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .site-header .wp-block-site-logo img {
   width: 48px;
   height: auto;
@@ -1340,29 +1553,6 @@ body {
   margin: 0 !important;
 }
 
-.page-travaux .filtre-matieres {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 0.75rem;
-  margin-bottom: 2rem;
-}
-.page-travaux .filtre-matieres label {
-  font-weight: 600;
-}
-.page-travaux .filtre-matieres select {
-  min-height: 44px;
-  padding: 0 0.75rem;
-  border: 1px solid var(--border-card);
-  border-radius: 6px;
-  background: var(--white);
-  color: var(--text-dark);
-  font: inherit;
-}
-.page-travaux .section-matiere {
-  padding: 0;
-  margin-bottom: 2.5rem;
-}
 .page-travaux .travaux-diagnostic {
   margin-bottom: 2rem;
   padding: 1rem 1.25rem;
@@ -1378,11 +1568,6 @@ body {
 .page-travaux .travaux-diagnostic ul {
   margin: 0.5rem 0 0;
   padding-left: 1.25rem;
-}
-
-.page-travaux .section-matiere__plus {
-  margin: -0.5rem 0 0;
-  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
