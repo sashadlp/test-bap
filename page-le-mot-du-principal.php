@@ -62,15 +62,6 @@ $les_renardiere_bref = array(
 
 $les_renardiere_valeurs = array( 'Confiance', 'Effort', 'Respect', 'Coopération' );
 
-// Offre de formation citée dans la lettre : libellé => slug de page (vide = pas de lien).
-$les_renardiere_offre = array(
-	'Sections internationales arabe et américaine' => 'section-internationale',
-	'Classe bilangue allemand'                     => '',
-	'LCE anglais et langues et cultures antiques'  => '',
-	'CHAM, avec le conservatoire de Courbevoie'    => 'cham',
-	'ULIS'                                         => 'classe-ulis',
-);
-
 // Pour continuer : libellé, description, slug de page.
 $les_renardiere_suite = array(
 	array( 'Visiter le collège', 'Les lieux, étape par étape', 'le-college/visite' ),
@@ -151,21 +142,6 @@ $les_renardiere_suite = array(
 						</ul>
 					</div>
 
-					<div class="mot-carte">
-						<p class="mot-carte__titre"><?php esc_html_e( 'Une offre de formation élargie', 'les-renardiere' ); ?></p>
-						<ul class="mot-offre">
-							<?php foreach ( $les_renardiere_offre as $les_renardiere_libelle => $les_renardiere_slug ) : ?>
-								<?php $les_renardiere_url = $les_renardiere_slug ? les_renardiere_page_url( $les_renardiere_slug ) : ''; ?>
-								<li>
-									<?php if ( $les_renardiere_url ) : ?>
-										<a href="<?php echo esc_url( $les_renardiere_url ); ?>"><?php echo esc_html( $les_renardiere_libelle ); ?> <span aria-hidden="true">→</span></a>
-									<?php else : ?>
-										<?php echo esc_html( $les_renardiere_libelle ); ?>
-									<?php endif; ?>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					</div>
 				</aside>
 
 			</div>

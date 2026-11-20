@@ -205,20 +205,6 @@
     }
   }
 
-  .mot-offre li {
-    padding: 0.45rem 0;
-    font-size: 0.88rem;
-    line-height: 1.4;
-
-    & + li {
-      border-top: 1px solid var(--bg-cream);
-    }
-
-    a {
-      font-weight: 600;
-    }
-  }
-
   // Pour continuer la visite
   .mot-suite h2 {
     margin: 0 0 1rem;
