@@ -1511,6 +1511,13 @@ footer.wp-block-group .footer-bottom,
   color: var(--text-muted);
   font-size: 0.95rem;
 }
+.page-vie .vie-repere .vie-repere__num {
+  display: none;
+  color: var(--navy-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
 .page-vie .vie-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 350px;
@@ -1737,6 +1744,257 @@ footer.wp-block-group .footer-bottom,
   }
   .page-vie .vie-grille {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.page-vie--eco .vie-liste li {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  background: var(--white);
+}
+@media (min-width: 901px) {
+  .page-vie--eco .vie-tete {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+  .page-vie--eco .vie-hero {
+    margin-bottom: 0;
+  }
+  .page-vie--eco .vie-reperes {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: 1fr;
+    margin-bottom: 0;
+  }
+  .page-vie--eco .vie-repere {
+    justify-content: center;
+  }
+  .page-vie--eco .vie-layout {
+    grid-template-columns: 350px minmax(0, 1fr);
+  }
+  .page-vie--eco .vie-cote {
+    order: -1;
+  }
+}
+
+.page-vie--cvc .vie-hero {
+  text-align: center;
+}
+.page-vie--cvc .vie-hero::after {
+  top: auto;
+  right: auto;
+  bottom: -160px;
+  left: -80px;
+}
+.page-vie--cvc .vie-hero__intro {
+  margin-right: auto;
+  margin-left: auto;
+}
+.page-vie--cvc .vie-repere {
+  align-items: center;
+  border-left-width: 1px;
+  border-top: 5px solid var(--navy-primary);
+  text-align: center;
+}
+.page-vie--cvc .vie-repere .vie-repere__num {
+  display: block;
+}
+.page-vie--cvc .vie-section {
+  padding: 1.5rem;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  background: var(--white);
+}
+@media (min-width: 601px) {
+  .page-vie--cvc .vie-contenu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .page-vie--cvc .vie-section {
+    margin: 0;
+  }
+  .page-vie--cvc .vie-section:first-of-type,
+  .page-vie--cvc .vie-editeur {
+    grid-column: 1/-1;
+  }
+}
+
+.page-vie--robotique .vie-hero::after {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+.page-vie--robotique .vie-repere {
+  padding: 1rem 0 0;
+  border: 0;
+  border-top: 2px solid var(--navy-primary);
+  border-radius: 0;
+  background: none;
+}
+.page-vie--robotique .vie-repere .vie-repere__num {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.page-vie--robotique .vie-liste {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.page-vie--robotique .vie-liste li {
+  padding: 1rem;
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  background: var(--white);
+}
+.page-vie--robotique .vie-carte {
+  border-top: 4px solid var(--navy-primary);
+}
+@media (max-width: 600px) {
+  .page-vie--robotique .vie-liste {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.page-vie--radio .vie-hero::after {
+  top: auto;
+  right: 3rem;
+  bottom: 0;
+  width: 260px;
+  height: 70%;
+  border: 0;
+  border-radius: 0;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 8px, transparent 8px 18px);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 100%);
+}
+.page-vie--radio .vie-reperes {
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  background: var(--white);
+}
+.page-vie--radio .vie-repere {
+  border: 0;
+  border-radius: 0;
+}
+.page-vie--radio .vie-repere + .vie-repere {
+  border-left: 1px solid var(--border-card);
+}
+.page-vie--radio .vie-contenu {
+  padding-left: 2rem;
+  border-left: 2px solid var(--border-card);
+}
+.page-vie--radio .vie-section {
+  position: relative;
+}
+.page-vie--radio .vie-section::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: calc(-2rem - 8px);
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--bg-cream);
+  border-radius: 50%;
+  background: var(--navy-primary);
+}
+.page-vie--radio .vie-grille {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+}
+.page-vie--radio .vie-carte__corps {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1rem 1.25rem;
+}
+.page-vie--radio .vie-carte__date {
+  flex-shrink: 0;
+  min-width: 7rem;
+}
+@media (max-width: 600px) {
+  .page-vie--radio .vie-repere + .vie-repere {
+    border-top: 1px solid var(--border-card);
+    border-left: 0;
+  }
+  .page-vie--radio .vie-contenu {
+    padding-left: 1.5rem;
+  }
+  .page-vie--radio .vie-section::before {
+    left: calc(-1.5rem - 8px);
+  }
+  .page-vie--radio .vie-carte__corps {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}
+
+.page-vie--cham .vie-hero {
+  padding-bottom: 6.5rem;
+}
+.page-vie--cham .vie-hero::after {
+  top: auto;
+  bottom: -180px;
+  right: -40px;
+  width: 420px;
+  height: 420px;
+}
+.page-vie--cham .vie-reperes {
+  position: relative;
+  z-index: 2;
+  margin-top: -5rem;
+  padding: 0 2rem;
+}
+.page-vie--cham .vie-repere {
+  border-left-width: 1px;
+  border-bottom: 5px solid var(--navy-primary);
+  box-shadow: 0 10px 24px rgba(4, 35, 78, 0.12);
+}
+.page-vie--cham .vie-liste {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.page-vie--cham .vie-liste li {
+  align-items: center;
+  padding: 0.5rem 1rem 0.5rem 0.6rem;
+  border: 1px solid var(--border-card);
+  border-radius: 999px;
+  background: var(--white);
+}
+.page-vie--cham .vie-liste__icone {
+  margin-top: 0;
+}
+.page-vie--cham .vie-layout {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+}
+.page-vie--cham .vie-cote {
+  position: static;
+}
+@media (min-width: 701px) {
+  .page-vie--cham .vie-cote {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+@media (max-width: 600px) {
+  .page-vie--cham .vie-hero {
+    padding-bottom: 5rem;
+  }
+  .page-vie--cham .vie-reperes {
+    margin-top: -3.5rem;
+    padding: 0 1rem;
   }
 }
 

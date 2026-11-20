@@ -19,7 +19,9 @@
  * Contenu des pages « Vie au collège ».
  *
  * Champs : intro (texte du bandeau), reperes (3 × [titre, texte]),
- * sections (titre + texte, ou titre + liste), categorie (slug de la catégorie des actualités).
+ * sections (titre + texte, ou titre + liste), categorie (slug de la catégorie des actualités),
+ * variante (mise en page : vide = celle d'Atelier Journalisme, ou eco, cvc, robotique, radio, cham ;
+ * voir assets/sass/_vie-college.scss). Les couleurs et la typo restent les mêmes partout.
  *
  * @return array
  */
@@ -81,6 +83,7 @@ function les_renardiere_vie_college_pages() {
 				),
 			),
 			'categorie' => 'les-eco-delegues',
+			'variante'  => 'eco',
 		),
 
 		'conseil-de-la-vie-collegiene' => array(
@@ -110,6 +113,7 @@ function les_renardiere_vie_college_pages() {
 				),
 			),
 			'categorie' => 'cvc',
+			'variante'  => 'cvc',
 		),
 
 		'atelier-robotique'            => array(
@@ -135,6 +139,7 @@ function les_renardiere_vie_college_pages() {
 				),
 			),
 			'categorie' => 'atelier-robotique',
+			'variante'  => 'robotique',
 		),
 
 		'web-radio'                    => array(
@@ -160,6 +165,7 @@ function les_renardiere_vie_college_pages() {
 				),
 			),
 			'categorie' => 'webradio',
+			'variante'  => 'radio',
 		),
 
 		'cham'                         => array(
@@ -185,6 +191,7 @@ function les_renardiere_vie_college_pages() {
 				),
 			),
 			'categorie' => 'cham',
+			'variante'  => 'cham',
 		),
 	);
 }
@@ -207,6 +214,7 @@ function les_renardiere_vie_college_donnees( $page ) {
 			'reperes'   => array(),
 			'sections'  => array(),
 			'categorie' => $page->post_name,
+			'variante'  => '',
 		)
 	);
 }

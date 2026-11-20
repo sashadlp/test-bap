@@ -45,7 +45,7 @@ $les_renardiere_page_contact = get_page_by_path( 'contact' );
 $les_renardiere_url_contact  = $les_renardiere_page_contact ? get_permalink( $les_renardiere_page_contact ) : home_url( '/contact/' );
 ?>
 
-	<main id="primary" class="site-main page-container page-vie">
+	<main id="primary" class="site-main page-container page-vie<?php echo $les_renardiere_vie['variante'] ? ' page-vie--' . esc_attr( $les_renardiere_vie['variante'] ) : ''; ?>">
 
 		<?php
 		while ( have_posts() ) :
@@ -66,6 +66,8 @@ $les_renardiere_url_contact  = $les_renardiere_page_contact ? get_permalink( $le
 				</ol>
 			</nav>
 
+			<div class="vie-tete">
+
 			<header class="vie-hero">
 				<p class="vie-hero__surtitre"><?php esc_html_e( 'Vie au collège', 'les-renardiere' ); ?></p>
 				<?php the_title( '<h1 class="vie-hero__titre">', '</h1>' ); ?>
@@ -79,14 +81,17 @@ $les_renardiere_url_contact  = $les_renardiere_page_contact ? get_permalink( $le
 
 			<?php if ( $les_renardiere_vie['reperes'] ) : ?>
 				<ul class="vie-reperes">
-					<?php foreach ( $les_renardiere_vie['reperes'] as $les_renardiere_repere ) : ?>
+					<?php foreach ( $les_renardiere_vie['reperes'] as $les_renardiere_num => $les_renardiere_repere ) : ?>
 						<li class="vie-repere">
+							<span class="vie-repere__num" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $les_renardiere_num + 1 ) ); ?></span>
 							<strong><?php echo esc_html( $les_renardiere_repere[0] ); ?></strong>
 							<span><?php echo esc_html( $les_renardiere_repere[1] ); ?></span>
 						</li>
 					<?php endforeach; ?>
 				</ul>
 			<?php endif; ?>
+
+			</div><!-- .vie-tete -->
 
 			<div class="vie-layout">
 
