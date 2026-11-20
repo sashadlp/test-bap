@@ -1,0 +1,44 @@
+@use 'variables' as *;
+
+// Pages des sections internationales (page-section-international-arabe.php).
+
+// Image pleine largeur juste sous le menu.
+.si-banniere {
+  height: clamp(180px, 30vw, 380px);
+  overflow: hidden;
+  background: var(--navy-primary);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Bandeau dessiné : sur petit écran, on garde la calligraphie (à droite) dans le cadre.
+  .si-banniere__dessin {
+    object-position: 82% 50%;
+  }
+}
+
+.page-si {
+  .si-titre {
+    margin: 0 0 1.25rem;
+    font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+    line-height: 1.15;
+  }
+
+  // Texte de présentation : grande taille, largeur de lecture confortable.
+  .si-texte {
+    max-width: 72ch;
+    margin-bottom: 3rem;
+    padding-left: 1.1rem;
+    border-left: 4px solid #D9B66C;
+
+    p {
+      margin: 0 0 1rem;
+      font-size: clamp(1.02rem, 1.6vw, 1.12rem);
+      line-height: 1.8;
+    }
+  }
+}

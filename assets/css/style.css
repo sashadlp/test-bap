@@ -2640,6 +2640,38 @@ footer.wp-block-group .footer-bottom,
   }
 }
 
+.si-banniere {
+  height: clamp(180px, 30vw, 380px);
+  overflow: hidden;
+  background: var(--navy-primary);
+}
+.si-banniere img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.si-banniere .si-banniere__dessin {
+  object-position: 82% 50%;
+}
+
+.page-si .si-titre {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+  line-height: 1.15;
+}
+.page-si .si-texte {
+  max-width: 72ch;
+  margin-bottom: 3rem;
+  padding-left: 1.1rem;
+  border-left: 4px solid #D9B66C;
+}
+.page-si .si-texte p {
+  margin: 0 0 1rem;
+  font-size: clamp(1.02rem, 1.6vw, 1.12rem);
+  line-height: 1.8;
+}
+
 .page-vie .fil-ariane ol {
   display: flex;
   flex-wrap: wrap;
