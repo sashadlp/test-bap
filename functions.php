@@ -165,6 +165,11 @@ require get_template_directory() . '/inc/matieres.php';
 require get_template_directory() . '/inc/rubriques.php';
 
 /**
+ * Page « Les travaux des élèves » : travaux par type, en cache.
+ */
+require get_template_directory() . '/inc/travaux.php';
+
+/**
  * Pages « Vie au collège » (clubs, ateliers, CVC…) : textes et modèle appliqué automatiquement.
  */
 require get_template_directory() . '/inc/vie-college.php';

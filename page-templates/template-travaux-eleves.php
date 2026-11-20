@@ -1,9 +1,10 @@
 <?php
 /**
- * Template Name: Travaux des élèves
+ * Template Name: Articles par matière
  *
  * Articles rangés par matière (catégories d'articles), avec des boutons de filtre.
- * Utilisé aussi par la page « Matière enseignée » (page-actualite-matiere.php).
+ * Utilisé par la page « Matière enseignée » (page-actualite-matiere.php).
+ * La page « Les travaux des élèves » a son propre modèle : page-travaux-des-eleves.php.
  *
  * Liste des matières, nombre d'articles par matière et cache : inc/matieres.php.
  * Lien direct vers une matière : ?matiere=anglais (le filtre met l'adresse à jour).

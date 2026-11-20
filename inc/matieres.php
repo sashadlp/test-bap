@@ -173,6 +173,7 @@ function les_renardiere_matieres_donnees() {
 function les_renardiere_matieres_vider_cache() {
 	delete_transient( 'les_renardiere_matieres' );
 	delete_transient( 'les_renardiere_rubriques' ); // Actualités des pages rubriques (inc/rubriques.php).
+	delete_transient( 'les_renardiere_travaux' ); // Page « Les travaux des élèves » (inc/travaux.php).
 }
 add_action( 'save_post_post', 'les_renardiere_matieres_vider_cache' );
 add_action( 'deleted_post', 'les_renardiere_matieres_vider_cache' );
