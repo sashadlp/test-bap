@@ -212,7 +212,7 @@ $les_renardiere_aujourdhui = current_time( 'Y-m-d' );
 							<?php endforeach; ?>
 						</ul>
 
-						<a class="infos-bouton" href="https://www.education.gouv.fr/calendrier-scolaire-100148" target="_blank" rel="noopener">
+						<a class="bouton" href="https://www.education.gouv.fr/calendrier-scolaire-100148" target="_blank" rel="noopener">
 							<?php esc_html_e( 'Voir le calendrier officiel', 'les-renardiere' ); ?>
 							<span class="screen-reader-text"><?php esc_html_e( '(nouvel onglet)', 'les-renardiere' ); ?></span>
 						</a>
@@ -273,7 +273,7 @@ $les_renardiere_aujourdhui = current_time( 'Y-m-d' );
 								</div>
 
 								<?php if ( isset( $les_renardiere_pdfs[ $les_renardiere_niveau ] ) ) : ?>
-									<a class="infos-bouton" href="<?php echo esc_url( $les_renardiere_pdfs[ $les_renardiere_niveau ] ); ?>" download>
+									<a class="bouton" href="<?php echo esc_url( $les_renardiere_pdfs[ $les_renardiere_niveau ] ); ?>" download>
 										<?php esc_html_e( 'Télécharger la liste (PDF)', 'les-renardiere' ); ?>
 										<span class="screen-reader-text">
 											<?php
@@ -313,7 +313,7 @@ $les_renardiere_aujourdhui = current_time( 'Y-m-d' );
 							<p class="infos-contact__titre"><?php esc_html_e( 'Vous ne trouvez pas l’information ?', 'les-renardiere' ); ?></p>
 							<p><?php esc_html_e( 'Écrivez au secrétariat ou à la vie scolaire.', 'les-renardiere' ); ?></p>
 						</div>
-						<a class="infos-bouton infos-bouton--plein" href="<?php echo esc_url( $les_renardiere_url_contact ); ?>"><?php esc_html_e( 'Contacter le collège', 'les-renardiere' ); ?></a>
+						<a class="bouton bouton--plein" href="<?php echo esc_url( $les_renardiere_url_contact ); ?>"><?php esc_html_e( 'Contacter le collège', 'les-renardiere' ); ?></a>
 					</aside>
 
 				</div>

@@ -27,9 +27,64 @@ a {
   text-decoration: none;
   transition: color 0.2s ease;
 
+  // Underscores (style.css racine) met les liens déjà visités en violet : on garde le bleu du site.
+  &:visited {
+    color: var(--navy-primary);
+  }
+
   &:hover {
     color: var(--navy-hover) !important;
     text-decoration: underline;
     text-shadow: none !important;
+  }
+}
+
+// Boutons communs (pages Infos pratiques, Contact…) : contour par défaut, plein avec .bouton--plein.
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0.45rem 1rem;
+  border: 2px solid var(--navy-primary);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--navy-primary);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:visited,
+  &:focus {
+    color: var(--navy-primary);
+  }
+
+  &:hover {
+    background: var(--bg-cream);
+    color: var(--navy-primary) !important;
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--navy-hover);
+    outline-offset: 2px;
+  }
+}
+
+.bouton--plein {
+  background: var(--navy-primary);
+  color: var(--white);
+
+  // Texte blanc aussi quand le lien a déjà été visité ou a le focus.
+  &:visited,
+  &:focus {
+    color: var(--white);
+  }
+
+  &:hover {
+    background: var(--navy-hover);
+    border-color: var(--navy-hover);
+    color: var(--white) !important;
   }
 }

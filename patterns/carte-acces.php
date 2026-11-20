@@ -27,7 +27,7 @@
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"acces-college__valeur"} -->
-		<p class="acces-college__valeur"><a href="tel:+330147789955">+33 01 47 78 99 55</a></p>
+		<p class="acces-college__valeur"><a href="tel:+33147789955">01 47 78 99 55</a></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
