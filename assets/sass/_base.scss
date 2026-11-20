@@ -27,6 +27,11 @@ a {
   text-decoration: none;
   transition: color 0.2s ease;
 
+  // Underscores (style.css racine) met les liens déjà visités en violet : on garde le bleu du site.
+  &:visited {
+    color: var(--navy-primary);
+  }
+
   &:hover {
     color: var(--navy-hover) !important;
     text-decoration: underline;
@@ -50,6 +55,11 @@ a {
   font-weight: 600;
   cursor: pointer;
 
+  &:visited,
+  &:focus {
+    color: var(--navy-primary);
+  }
+
   &:hover {
     background: var(--bg-cream);
     color: var(--navy-primary) !important;
@@ -65,6 +75,12 @@ a {
 .bouton--plein {
   background: var(--navy-primary);
   color: var(--white);
+
+  // Texte blanc aussi quand le lien a déjà été visité ou a le focus.
+  &:visited,
+  &:focus {
+    color: var(--white);
+  }
 
   &:hover {
     background: var(--navy-hover);
