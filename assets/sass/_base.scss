@@ -61,6 +61,11 @@ a {
     color: var(--navy-primary);
   }
 
+  // Flèches (→) dans des <span> : même couleur que le texte du bouton (sinon `p, li, span` les fonce).
+  span {
+    color: inherit;
+  }
+
   &:hover {
     background: var(--bg-cream);
     color: var(--navy-primary) !important;

@@ -42,3 +42,157 @@
     }
   }
 }
+
+// ---------------------------------------------------------------
+// Page d'entrée « Section internationale » (page-section-internationale.php)
+// Cartes d'actualités : _matieres.scss.
+// ---------------------------------------------------------------
+
+// Les deux bandeaux côte à côte (un seul sur téléphone).
+.si-banniere--double {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  background: #D9B66C;
+
+  // Bandeaux en demi-largeur : on cadre sur la rosace et le mot, à droite du dessin.
+  .si-banniere__dessin {
+    object-position: 100% 50%;
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: minmax(0, 1fr);
+
+    img + img {
+      display: none;
+    }
+  }
+}
+
+.page-si-hub {
+  .si-cartes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 0 0 3rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Carte cliquable en entier (lien du titre étendu).
+  .si-carte {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border-card);
+    border-radius: 14px;
+    background: var(--white);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+
+    &:hover,
+    &:focus-within {
+      transform: translateY(-2px);
+      border-color: var(--navy-primary);
+      box-shadow: 0 14px 30px rgba(4, 35, 78, 0.14);
+    }
+
+    &:focus-within {
+      outline: 2px solid var(--navy-hover);
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      &:hover,
+      &:focus-within {
+        transform: none;
+      }
+    }
+
+    > img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 6;
+      object-fit: cover;
+      object-position: 82% 50%;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      line-height: 1.25;
+
+      a {
+        color: var(--navy-primary);
+        text-decoration: none;
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+        }
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+  }
+
+  .si-carte__corps {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 1.4rem 1.5rem 1.5rem;
+
+    .bouton {
+      margin-top: auto;
+    }
+  }
+
+  .si-actus {
+    margin-bottom: 3rem;
+  }
+
+  .si-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid #E0A27F;
+    border-radius: 10px;
+    background: #FBE6D8;
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  }
+
+  .si-cta__titre {
+    margin-bottom: 0.15rem !important;
+    color: var(--navy-primary);
+    font-size: 1.05rem !important;
+    font-weight: 700;
+  }
+
+  @media (max-width: 760px) {
+    .si-cartes {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
