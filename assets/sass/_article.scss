@@ -1,0 +1,283 @@
+@use 'variables' as *;
+
+// Article seul (single.php) : actualités, travaux des élèves, projets.
+// Cartes « Aussi en … » : _matieres.scss.
+
+.article-page {
+  max-width: 1000px;
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem;
+
+  // Colonne de lecture : en-tête et texte.
+  .article-entete,
+  .article-contenu,
+  .article-pied {
+    max-width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  // En-tête séparé du texte par un filet.
+  .article-entete {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-card);
+
+    .fil-ariane ol {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  // Rubrique : pastille bleue au-dessus du titre.
+  .article-rubrique {
+    display: inline-block;
+    margin-bottom: 0.9rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    background: var(--navy-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    &,
+    &:visited,
+    a,
+    a:visited {
+      color: var(--white);
+    }
+
+    &:hover,
+    a:hover {
+      color: var(--white) !important;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background: var(--navy-hover);
+    }
+  }
+
+  .article-titre {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 4.8vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+
+  // Date · temps de lecture
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+
+    span {
+      color: inherit;
+    }
+
+    span + span::before {
+      content: '·';
+      margin: 0 0.6rem;
+    }
+  }
+
+  // Texte de l'article
+  .article-contenu {
+    margin-bottom: 2.5rem;
+    font-size: 1.08rem;
+
+    p,
+    li {
+      font-size: inherit;
+      line-height: 1.85;
+    }
+
+    p {
+      margin: 0 0 1.35rem;
+    }
+
+    // Premier paragraphe en chapeau (aussi quand le texte collé est dans un <div>).
+    > p:first-child,
+    > div:first-child > p:first-child {
+      color: var(--navy-primary);
+      font-size: 1.22rem;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    h2 {
+      margin: 2.5rem 0 0.9rem;
+      font-size: 1.6rem;
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 2rem 0 0.75rem;
+      font-size: 1.3rem;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 1.35rem;
+      padding-left: 1.4rem;
+    }
+
+    li + li {
+      margin-top: 0.35rem;
+    }
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    img {
+      height: auto;
+      border-radius: 12px;
+    }
+
+    figure {
+      margin: 2rem 0;
+    }
+
+    figcaption {
+      margin-top: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    blockquote {
+      margin: 2rem 0;
+      padding: 0.25rem 0 0.25rem 1.25rem;
+      border-left: 4px solid var(--navy-primary);
+      font-size: 1.15rem;
+      font-style: italic;
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Signature de l'auteur (« A.S ») : précédée d'un trait.
+    .article-signature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2.25rem 0 0;
+      color: var(--navy-primary);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+
+      &::before {
+        content: '';
+        width: 2.5rem;
+        height: 2px;
+        background: currentColor;
+      }
+    }
+  }
+
+  // Pied d'article : rubrique et lien à copier.
+  .article-pied {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border-card);
+    border-bottom: 1px solid var(--border-card);
+  }
+
+  .article-pied__rubrique {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+
+    a {
+      margin-left: 0.25rem;
+      font-weight: 700;
+    }
+  }
+
+  .article-copier[hidden] {
+    display: none;
+  }
+
+  // Article précédent / suivant : deux cartes.
+  .post-navigation {
+    margin: 0 0 3rem;
+
+    .nav-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .nav-next {
+      grid-column: 2;
+      text-align: right;
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      height: 100%;
+      padding: 1.1rem 1.25rem;
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      background: var(--white);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+      &:hover {
+        border-color: var(--navy-primary);
+        box-shadow: 0 10px 24px rgba(4, 35, 78, 0.1);
+        text-decoration: none;
+      }
+    }
+
+    .nav-subtitle {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-title {
+      color: var(--navy-primary);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+  }
+
+  .article-autres {
+    margin-bottom: 2.5rem;
+  }
+
+  .article-retour {
+    margin: 0 0 1rem;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .article-contenu {
+      font-size: 1.02rem;
+    }
+
+    .post-navigation .nav-links {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .post-navigation .nav-next {
+      grid-column: auto;
+      text-align: left;
+    }
+  }
+}
